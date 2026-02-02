@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoyoso Czech Market Research & Strategy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Custom scrollbar for cleaner UI */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+
+    /* Chart container constraint classes */
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 350px;
+      max-height: 400px;
+    }
+
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 231, 235, 0.5);
+    }
+
+    .nav-active {
+      border-bottom: 2px solid #00a0a0;
+      color: #00a0a0;
+      font-weight: 600;
+    }
+  </style>
+  <!-- Chosen Palette: Warm Neutrals with Yoyoso Teal Accents -->
+  <!-- 
+        Primary Background: #f9fafb (Gray 50) - Warm Neutral
+        Secondary Background: #ffffff (White)
+        Primary Text: #1f2937 (Gray 800)
+        Accent 1 (Brand Teal): #00a0a0
+        Accent 2 (Nature Green): #10b981
+        Accent 3 (Soft Gray): #e5e7eb
+    -->
+
+  <!-- Application Structure Plan: 
+         1. Hero/Intro: Hooks the user with the report scope.
+         2. Comparative Analysis: Interactive cards and Radar chart to compare competitors. Uses a "Select & Reveal" pattern.
+         3. Market Fit (SWOT): Interactive 2x2 grid. Clicking expands details.
+         4. Marketing Strategy: Tabbed interface for SEO vs. Social Media to keep high-density info organized.
+         5. Roadmap: Simple timeline visualization.
+         Rationale: This structure moves from "Understanding the Landscape" to "Strategic Planning", mirroring a business decision flow.
+    -->
+
+  <!-- Visualization & Content Choices:
+         1. Competitive Radar Chart: Goal: Compare brand attributes (Price, Quality, etc.). Interaction: None (static comparison). Justification: Best for multi-variable comparison.
+         2. Keyword Volume Bar Chart: Goal: SEO potential. Interaction: Hover for exact search vol. Justification: Clearly shows volume differences.
+         3. Budget Allocation Pie Chart: Goal: Resource planning. Interaction: Toggle segments.
+         4. Interactive Cards: For text-heavy competitor pros/cons.
+         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. 
+    -->
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 glass-panel shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <img src="yoyoso-logo.png" alt="YOYOSO" class="h-8">
+          <span class="text-sm font-medium text-gray-500 border-l border-gray-300 pl-3">CZ Strategy <span
+              class="text-gray-400">捷克策略</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <button onclick="scrollToSection('hero')"
+            class="nav-btn text-gray-600 hover:text-teal-600 px-3 py-2 text-sm font-medium">Overview</button>
+          <button onclick="scrollToSection('competitors')"
+            class="nav-btn text-gray-600 hover:text-teal-600 px-3 py-2 text-sm font-medium">Competitors</button>
+          <button onclick="scrollToSection('market-overview')"
+            class="nav-btn text-gray-600 hover:text-teal-600 px-3 py-2 text-sm font-medium">Market Data</button>
+          <button onclick="scrollToSection('swot')"
+            class="nav-btn text-gray-600 hover:text-teal-600 px-3 py-2 text-sm font-medium">SWOT Analysis</button>
+          <button onclick="scrollToSection('marketing')"
+            class="nav-btn text-gray-600 hover:text-teal-600 px-3 py-2 text-sm font-medium">Marketing Plan</button>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+            <span class="text-2xl">☰</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 shadow-lg">
+      <div class="flex flex-col space-y-3">
+        <button onclick="scrollToSection('hero')"
+          class="text-left text-gray-600 hover:text-teal-600 font-medium">Overview</button>
+        <button onclick="scrollToSection('competitors')"
+          class="text-left text-gray-600 hover:text-teal-600 font-medium">Competitors</button>
+        <button onclick="scrollToSection('market-overview')"
+          class="text-left text-gray-600 hover:text-teal-600 font-medium">Market Data</button>
+        <button onclick="scrollToSection('swot')" class="text-left text-gray-600 hover:text-teal-600 font-medium">SWOT
+          Analysis</button>
+        <button onclick="scrollToSection('marketing')"
+          class="text-left text-gray-600 hover:text-teal-600 font-medium">Marketing Plan</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="text-center space-y-6 pt-8">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+        Market Entry: <span class="text-teal-600">Yoyoso</span> Czech Republic
+      </h1>
+      <p class="text-xl text-gray-500">市场进入：<span class="text-teal-600">优优宿</span> 捷克共和国</p>
+      <p class="max-w-3xl mx-auto text-lg text-gray-600">
+        A comprehensive analysis of the "Aesthetic Fast Fashion" landscape in Central Europe.
+        Comparing key competitors (USUPSO, XIMIVOGUE) and defining a winning SEO & Social Strategy for the Czech market.
+      </p>
+      <p class="max-w-3xl mx-auto text-base text-gray-400">
+        对中欧「美学快时尚」市场的全面分析。对比主要竞争对手（USUPSO、XIMIVOGUE），为捷克市场制定制胜的SEO与社交媒体策略。
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 text-left">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          <div class="text-2xl mb-2">🇨🇿</div>
+          <h3 class="font-bold text-gray-900">Target Market</h3>
+          <p class="text-xs text-gray-400">目标市场</p>
+          <p class="text-sm text-gray-500 mt-1">Czech Republic. High mall density, price-sensitive but design-conscious
+            consumers.</p>
+          <p class="text-xs text-gray-400 mt-1">捷克共和国。商场密度高，消费者对价格敏感但注重设计。</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          <div class="text-2xl mb-2">⚔️</div>
+          <h3 class="font-bold text-gray-900">Primary Rivals</h3>
+          <p class="text-xs text-gray-400">主要竞争对手</p>
+          <p class="text-sm text-gray-500 mt-1">Flying Tiger, Action, USUPSO. Crowded "gift & gadget" sector.</p>
+          <p class="text-xs text-gray-400 mt-1">Flying Tiger、Action、USUPSO。「礼品与小商品」市场竞争激烈。</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          <div class="text-2xl mb-2">🎯</div>
+          <h3 class="font-bold text-gray-900">Strategic Goal</h3>
+          <p class="text-xs text-gray-400">战略目标</p>
+          <p class="text-sm text-gray-500 mt-1">Establish brand authority via "Korean Aesthetic" niche in SEO and
+            Social.</p>
+          <p class="text-xs text-gray-400 mt-1">通过「韩式美学」细分市场在SEO和社交媒体建立品牌权威。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Competitor Analysis -->
+    <section id="competitors" class="scroll-mt-24">
+      <div class="mb-6">
+        <h2 class="text-3xl font-bold text-gray-900">Competitive Landscape</h2>
+        <p class="text-lg text-gray-400">竞争格局</p>
+        <p class="text-gray-600 mt-2">
+          The Czech market is saturated with "variety stores." While direct competitors like USUPSO copy the model,
+          indirect competitors like Flying Tiger and Action dominate foot traffic.
+        </p>
+        <p class="text-sm text-gray-400 mt-1">
+          捷克市场已被「杂货店」充斥。USUPSO等直接竞争者复制同样模式，Flying Tiger和Action等间接竞争者占据主要客流。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+        <!-- Left: Interactive List -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
+            <div>
+              <h3 class="font-semibold text-gray-700">Competitor Profiles</h3>
+              <p class="text-xs text-gray-400">竞争对手资料</p>
+            </div>
+            <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">Select to View 点击查看</span>
+          </div>
+          <!-- Added max-height and overflow-y-auto for scrolling -->
+          <div class="divide-y divide-gray-100 max-h-[500px] overflow-y-auto" id="competitor-list">
+            <!-- JS will populate this -->
+          </div>
+        </div>
+
+        <!-- Right: Radar Chart & Detail View -->
+        <div class="space-y-6">
+          <!-- Detail Card -->
+          <div id="competitor-detail"
+            class="bg-white p-6 rounded-xl shadow-md border border-gray-100 min-h-[200px] transition-all duration-300">
+            <!-- Content populated by JS -->
+            <div class="text-center text-gray-400 py-10">Select a brand to see details<br><span
+                class="text-sm">选择品牌查看详情</span></div>
+          </div>
+
+          <!-- Radar Chart Container -->
+          <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+            <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-1 text-center">Brand Attribute
+              Comparison</h4>
+            <p class="text-xs text-gray-400 text-center mb-4">品牌属性对比</p>
+            <div class="chart-container">
+              <canvas id="competitorRadarChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2.5 Market Saturation Overview -->
+    <section id="market-overview" class="scroll-mt-24">
+      <div class="mb-6">
+        <h2 class="text-3xl font-bold text-gray-900">Market Saturation Overview</h2>
+        <p class="text-lg text-gray-400">市场饱和概况</p>
+        <p class="text-gray-600 mt-2">
+          Store presence across Czech Republic — understanding where YOYOSO stands against established retail giants and
+          Asian challengers.
+        </p>
+        <p class="text-sm text-gray-400 mt-1">
+          捷克共和国门店分布 — 了解YOYOSO在成熟零售巨头和亚洲竞争者中的位置。
+        </p>
+      </div>
+
+      <!-- Segment Legend -->
+      <div class="flex flex-wrap gap-4 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="w-4 h-4 rounded-full bg-gradient-to-r from-orange-400 to-orange-600"></span>
+          <span class="text-sm font-medium text-gray-700">Mass Saturation <span class="text-gray-400">大众饱和</span></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-purple-600"></span>
+          <span class="text-sm font-medium text-gray-700">Lifestyle Niche <span
+              class="text-gray-400">生活方式小众</span></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-4 h-4 rounded-full bg-gradient-to-r from-red-400 to-red-600"></span>
+          <span class="text-sm font-medium text-gray-700">Asian Challenger <span
+              class="text-gray-400">亚洲挑战者</span></span>
+        </div>
+      </div>
+
+      <!-- Data Table -->
+      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="text-left px-6 py-4 font-semibold text-gray-700 text-sm">Segment</th>
+                <th class="text-left px-6 py-4 font-semibold text-gray-700 text-sm">Brand</th>
+                <th class="text-center px-6 py-4 font-semibold text-gray-700 text-sm">CZ Stores</th>
+                <th class="text-left px-6 py-4 font-semibold text-gray-700 text-sm">Strategic Implication</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <!-- Mass Saturation: PEPCO -->
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4">
+                  <span
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-orange-700">
+                    <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                    Mass Saturation
+                  </span>
+                </td>
+                <td class="px-6 py-4">
+                  <span class="font-bold text-gray-900">PEPCO</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="font-bold text-2xl text-gray-900">321</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600 max-w-md">
+                  Use as benchmark for ubiquity. They are in every town. <strong class="text-red-600">YOYOSO cannot
+                    compete on convenience/reach.</strong>
+                </td>
+              </tr>
+              <!-- Mass Saturation: KIK -->
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4">
+                  <span
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-orange-700">
+                    <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                    Mass Saturation
+                  </span>
+                </td>
+                <td class="px-6 py-4">
+                  <span class="font-bold text-gray-900">KIK</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="font-bold text-2xl text-gray-900">~240</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600 max-w-md">
+                  Dominates the low-cost apparel sector in retail parks.
+                </td>
+              </tr>
+              <!-- Mass Saturation: ACTION -->
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4">
+                  <span
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-orange-700">
+                    <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                    Mass Saturation
+                  </span>
+                </td>
+                <td class="px-6 py-4">
+                  <span class="font-bold text-gray-900">ACTION</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="font-bold text-2xl text-gray-900">~100</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600 max-w-md">
+                  Aggressive expansion (opening 100th store Dec 2025). <strong class="text-blue-600">The price leader
+                    for non-food basics.</strong>
+                </td>
+              </tr>
+              <!-- Lifestyle Niche: Flying Tiger -->
+              <tr class="hover:bg-gray-50 transition-colors bg-purple-50/30">
+                <td class="px-6 py-4">
+                  <span
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">
+                    <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                    Lifestyle Niche
+                  </span>
+                </td>
+                <td class="px-6 py-4">
+                  <span class="font-bold text-gray-900">Flying Tiger</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="font-bold text-2xl text-purple-700">17</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600 max-w-md">
+                  <strong class="text-purple-700">The ceiling for this niche.</strong> Tiger proves you don't need 100
+                  stores, just the right 17 in prime foot-traffic zones.
+                </td>
+              </tr>
+              <!-- Asian Challenger: YOYOSO -->
+              <tr class="hover:bg-teal-50 transition-colors bg-teal-50/50 border-l-4 border-teal-500">
+                <td class="px-6 py-4">
+                  <span
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-teal-100 text-teal-700">
+                    <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                    Asian Challenger
+                  </span>
+                </td>
+                <td class="px-6 py-4">
+                  <span class="font-bold text-teal-600 text-lg">YOYOSO</span>
+                  <span class="ml-2 text-xs bg-teal-500 text-white px-2 py-0.5 rounded-full">You</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="font-bold text-3xl text-teal-600">4</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-700 max-w-md">
+                  Growing presence with 4 stores (Flora, Zličín, Novo Plaza, <strong class="text-green-600">Arkády
+                    Pankrác</strong>). Still needs visibility boost vs. competitors.
+                </td>
+              </tr>
+              <!-- Asian Challenger: XIMIVOGUE -->
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-6 py-4">
+                  <span
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-teal-100 text-teal-700">
+                    <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                    Asian Challenger
+                  </span>
+                </td>
+                <td class="px-6 py-4">
+                  <span class="font-bold text-gray-900">XIMIVOGUE</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="font-bold text-2xl text-gray-900">2</span>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600 max-w-md">
+                  New entrant testing the market (Stromovka, Butovice).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Key Insight Card -->
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-5 rounded-xl border border-orange-200">
+          <div class="text-3xl mb-2">🏪</div>
+          <h4 class="font-bold text-orange-800 mb-1">Mass Market Reality</h4>
+          <p class="text-xs text-orange-600 mb-2">大众市场现实</p>
+          <p class="text-sm text-orange-700">Combined 660+ stores from PEPCO, KIK, ACTION. They own the convenience
+            game.</p>
+          <p class="text-xs text-orange-500 mt-1">PEPCO、KIK、ACTION合计660+家店。他们掌控着便利性竞争。</p>
+        </div>
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border border-purple-200">
+          <div class="text-3xl mb-2">🎯</div>
+          <h4 class="font-bold text-purple-800 mb-1">The Tiger Strategy</h4>
+          <p class="text-xs text-purple-600 mb-2">Flying Tiger策略</p>
+          <p class="text-sm text-purple-700">17 stores, prime locations only. Quality over quantity = the model to
+            follow.</p>
+          <p class="text-xs text-purple-500 mt-1">17家门店，只选黄金地段。质量重于数量 = 值得借鉴的模式。</p>
+        </div>
+        <div class="bg-gradient-to-br from-red-50 to-red-100 p-5 rounded-xl border border-red-200">
+          <div class="text-3xl mb-2">⚡</div>
+          <h4 class="font-bold text-red-800 mb-1">The YOYOSO Challenge</h4>
+          <p class="text-xs text-red-600 mb-2">YOYOSO的挑战</p>
+          <p class="text-sm text-red-700">With 4 stores now, visibility remains the #1 priority. Digital presence must
+            amplify physical reach.</p>
+          <p class="text-xs text-red-500 mt-1">目前4家店，曝光率仍是第一优先。数字化存在必须放大实体影响力。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SWOT Analysis -->
+    <section id="swot" class="scroll-mt-24 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-10">
+      <div class="mb-8 text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900">SWOT Analysis for CZ Market</h2>
+        <p class="text-lg text-gray-400">捷克市场SWOT分析</p>
+        <p class="text-gray-600 mt-2">
+          Understanding Yoyoso's position against established European players and Asian competitors.
+        </p>
+        <p class="text-sm text-gray-400 mt-1">
+          了解Yoyoso在已经建立的欧洲玩家和亚洲竞争者中的定位。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="swot-grid">
+        <!-- Strengths -->
+        <div
+          class="p-6 rounded-xl border border-green-100 bg-green-50/50 hover:bg-green-50 transition cursor-pointer group"
+          onclick="toggleSwot('strengths')">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xl font-bold text-green-800">Strengths <span
+                class="text-sm font-normal text-green-600">优势</span></h3>
+            <span class="text-green-600 text-xl group-hover:scale-110 transition">✚</span>
+          </div>
+          <ul class="space-y-2 text-gray-700 text-sm hidden" id="swot-strengths">
+            <li class="flex items-start"><span class="mr-2 text-green-500">✔</span>Strong "Korean Aesthetic" branding
+              appeals to CZ Gen Z.<br><span class="text-gray-400 text-xs ml-5">强烈的「韩式美学」品牌吸引捷克Z世代。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-green-500">✔</span>Rapid product turnover (Fast Fashion
+              model).<br><span class="text-gray-400 text-xs ml-5">产品更新迅速（快时尚模式）。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-green-500">✔</span>Broad range: Beauty, Home, Digital,
+              Stationery.<br><span class="text-gray-400 text-xs ml-5">品类丰富：美妆、家居、数码、文具。</span></li>
+          </ul>
+          <p class="text-sm text-green-700 font-medium mt-2" id="swot-strengths-preview">Click to expand... 点击展开</p>
+        </div>
+
+        <!-- Weaknesses -->
+        <div class="p-6 rounded-xl border border-red-100 bg-red-50/50 hover:bg-red-50 transition cursor-pointer group"
+          onclick="toggleSwot('weaknesses')">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xl font-bold text-red-800">Weaknesses <span
+                class="text-sm font-normal text-red-600">劣势</span></h3>
+            <span class="text-red-600 text-xl group-hover:scale-110 transition">✚</span>
+          </div>
+          <ul class="space-y-2 text-gray-700 text-sm hidden" id="swot-weaknesses">
+            <li class="flex items-start"><span class="mr-2 text-red-500">✖</span>Low brand awareness in CZ compared to
+              Tiger/Pepco.<br><span class="text-gray-400 text-xs ml-5">在捷克的品牌知名度较Tiger/Pepco低。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-red-500">✖</span>Perceived as "just another Chinese
+              shop" by older demographics.<br><span class="text-gray-400 text-xs ml-5">被年较人群视为「又一家中国店」。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-red-500">✖</span>E-commerce logistics in CZ are highly
+              competitive (Alza standard).<br><span class="text-gray-400 text-xs ml-5">捷克电商物流竞争激烈（Alza标准）。</span></li>
+          </ul>
+          <p class="text-sm text-red-700 font-medium mt-2" id="swot-weaknesses-preview">Click to expand... 点击展开</p>
+        </div>
+
+        <!-- Opportunities -->
+        <div
+          class="p-6 rounded-xl border border-blue-100 bg-blue-50/50 hover:bg-blue-50 transition cursor-pointer group"
+          onclick="toggleSwot('opportunities')">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xl font-bold text-blue-800">Opportunities <span
+                class="text-sm font-normal text-blue-600">机会</span></h3>
+            <span class="text-blue-600 text-xl group-hover:scale-110 transition">✚</span>
+          </div>
+          <ul class="space-y-2 text-gray-700 text-sm hidden" id="swot-opportunities">
+            <li class="flex items-start"><span class="mr-2 text-blue-500">▲</span>SEO Gap: High search volume for "Cute
+              Stationery" & "Korean Cosmetics".<br><span
+                class="text-gray-400 text-xs ml-5">SEO空白：「可爱文具」和「韩国化妆品」搜索量高。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-blue-500">▲</span>Expansion into Tier 2 cities (Brno,
+              Ostrava) malls.<br><span class="text-gray-400 text-xs ml-5">扩展至二线城市（布尔诺、奥斯特拉发）商场。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-blue-500">▲</span>Collaboration with Czech beauty
+              micro-influencers.<br><span class="text-gray-400 text-xs ml-5">与捷克美妆微网红合作。</span></li>
+          </ul>
+          <p class="text-sm text-blue-700 font-medium mt-2" id="swot-opportunities-preview">Click to expand... 点击展开</p>
+        </div>
+
+        <!-- Threats -->
+        <div class="p-6 rounded-xl border border-gray-200 bg-gray-50 hover:bg-gray-100 transition cursor-pointer group"
+          onclick="toggleSwot('threats')">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xl font-bold text-gray-800">Threats <span
+                class="text-sm font-normal text-gray-600">威胁</span></h3>
+            <span class="text-gray-600 text-xl group-hover:scale-110 transition">✚</span>
+          </div>
+          <ul class="space-y-2 text-gray-700 text-sm hidden" id="swot-threats">
+            <li class="flex items-start"><span class="mr-2 text-gray-500">!</span>Aggressive expansion of Action (Dutch
+              discounter) in CZ.<br><span class="text-gray-400 text-xs ml-5">Action（荷兰折扣店）在捷克的激进扩张。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-gray-500">!</span>Rising inflation affecting
+              discretionary spending on "gadgets".<br><span
+                class="text-gray-400 text-xs ml-5">通货膨胀上升影响「小商品」的可自由支配消费。</span></li>
+            <li class="flex items-start"><span class="mr-2 text-gray-500">!</span>Regulatory changes on importing
+              cosmetics from non-EU sources.<br><span class="text-gray-400 text-xs ml-5">从非欧盟来源进口化妆品的监管变化。</span></li>
+          </ul>
+          <p class="text-sm text-gray-600 font-medium mt-2" id="swot-threats-preview">Click to expand... 点击展开</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Marketing Strategy -->
+    <section id="marketing" class="scroll-mt-24">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900">Marketing Strategy</h2>
+        <p class="text-lg text-gray-400">营销策略</p>
+        <p class="text-gray-600 mt-2">
+          A dual-channel approach focusing on <strong>Search Intent (Google)</strong> and <strong>Brand Desire
+            (Social)</strong>.
+        </p>
+        <p class="text-sm text-gray-400 mt-1">
+          双渠道方法，专注<strong>搜索意图（谷歌）</strong>和<strong>品牌渴望（社交）</strong>。
+        </p>
+      </div>
+
+      <!-- Strategy Tabs -->
+      <div class="flex space-x-2 border-b border-gray-200 mb-6">
+        <button onclick="switchStrategy('seo')" id="tab-seo"
+          class="px-6 py-3 font-medium text-sm transition-colors border-b-2 border-teal-500 text-teal-600">SEO Strategy
+          <span class="text-xs text-gray-400">SEO策略</span></button>
+        <button onclick="switchStrategy('social')" id="tab-social"
+          class="px-6 py-3 font-medium text-sm text-gray-500 hover:text-gray-700 transition-colors border-b-2 border-transparent">Social
+          Media <span class="text-xs text-gray-400">社交媒体</span></button>
+        <button onclick="switchStrategy('budget')" id="tab-budget"
+          class="px-6 py-3 font-medium text-sm text-gray-500 hover:text-gray-700 transition-colors border-b-2 border-transparent">Budget
+          <span class="text-xs text-gray-400">预算</span></button>
+      </div>
+
+      <!-- SEO Content -->
+      <div id="content-seo" class="strategy-content grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in">
+        <div class="space-y-6">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 class="font-bold text-gray-800 mb-1">High-Value Czech Keywords</h3>
+            <p class="text-xs text-gray-400 mb-3">捷克高价值关键词</p>
+            <p class="text-sm text-gray-500 mb-4">Focus on "Problem/Solution" and "Aesthetic" terms rather than just
+              brand name.</p>
+            <p class="text-xs text-gray-400 mb-4">专注「问题/解决方案」和「美学」词汇，而不仅仅是品牌名。</p>
+            <!-- Chart Container -->
+            <div class="chart-container">
+              <canvas id="seoChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h3 class="font-bold text-gray-800">SEO Execution Plan <span
+              class="text-sm font-normal text-gray-400">SEO执行计划</span></h3>
+          <div class="bg-white p-4 rounded-lg border-l-4 border-teal-500 shadow-sm">
+            <h4 class="font-bold text-gray-900">1. Local SEO (Google Maps)</h4>
+            <p class="text-xs text-gray-400">本地SEO（谷歌地图）</p>
+            <p class="text-sm text-gray-600 mt-1">Claim "Moje firma na Googlu". Post weekly photo updates of store
+              interiors. Keywords: "Dárky Praha", "Obchod s doplňky".</p>
+            <p class="text-xs text-gray-400 mt-1">认领「我的谷歌商家」。每周发布店内照片。关键词：「布拉格礼品」、「配饰店」。</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg border-l-4 border-yellow-500 shadow-sm">
+            <h4 class="font-bold text-gray-900">2. Content Hub (Blog)</h4>
+            <p class="text-xs text-gray-400">内容中心（博客）</p>
+            <p class="text-sm text-gray-600 mt-1">Create "Yoyoso Life" blog. Articles: "10 tips for organizing your
+              desk" (Tipy na organizaci stolu), "Korean skincare routine" (Korejská péče o pleť).</p>
+            <p class="text-xs text-gray-400 mt-1">创建「Yoyoso Life」博客。文章：「整理桌面的10个技巧」、「韩式护肤流程」。</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500 shadow-sm">
+            <h4 class="font-bold text-gray-900">3. Technical SEO</h4>
+            <p class="text-xs text-gray-400">技术SEO</p>
+            <p class="text-sm text-gray-600 mt-1">Ensure fast mobile loading. Czech e-commerce users are impatient. Use
+              .cz domain extension.</p>
+            <p class="text-xs text-gray-400 mt-1">确保移动端快速加载。捷克电商用户没有耐心。使用.cz域名。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Content -->
+      <div id="content-social" class="strategy-content hidden grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+        <!-- TikTok -->
+        <div class="bg-black text-white p-6 rounded-xl shadow-md">
+          <div class="text-2xl mb-4">🎵 TikTok CZ</div>
+          <h4 class="font-bold mb-1">Strategy: "Hauls & ASMR"</h4>
+          <p class="text-xs text-gray-400 mb-2">策略：「开箱与ASMR」</p>
+          <p class="text-gray-300 text-sm mb-4">Focus on raw, unpolished videos showing product usage. Tag #yoyosocz
+            #levne #korejskastyl.</p>
+          <p class="text-gray-500 text-xs mb-4">专注原始、未经修饰的产品使用视频。标签 #yoyosocz #levne #korejskastyl。</p>
+          <ul class="text-xs space-y-2 text-gray-400">
+            <li>• "Finds under 100 CZK" <span class="text-gray-500">100克朗以下的发现</span></li>
+            <li>• "Pack an order with me" <span class="text-gray-500">和我一起打包订单</span></li>
+            <li>• Store walkthroughs <span class="text-gray-500">门店漫步</span></li>
+          </ul>
+        </div>
+
+        <!-- Instagram -->
+        <div class="bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white p-6 rounded-xl shadow-md">
+          <div class="text-2xl mb-4">📸 Instagram</div>
+          <h4 class="font-bold mb-1">Strategy: "Aesthetic Lifestyle"</h4>
+          <p class="text-xs text-gray-200 mb-2">策略：「美学生活方式」</p>
+          <p class="text-gray-100 text-sm mb-4">Curated flat lays. User Generated Content (UGC) reposts from Czech
+            customers.</p>
+          <p class="text-gray-200 text-xs mb-4">精心策划的平铺图。转发捷克客户的用户生产内容（UGC）。</p>
+          <ul class="text-xs space-y-2 text-gray-200">
+            <li>• Influencer Collabs (@Barter) <span class="text-gray-300">网红合作</span></li>
+            <li>• Reels: Aesthetic room tours <span class="text-gray-300">短视频：美学房间漫游</span></li>
+            <li>• Stories: Daily Quizzes/Polls <span class="text-gray-300">快拍：每日问答/投票</span></li>
+          </ul>
+        </div>
+
+        <!-- Influencers -->
+        <div class="bg-white text-gray-800 border border-gray-200 p-6 rounded-xl shadow-md">
+          <div class="text-2xl mb-4">🤝 Influencers</div>
+          <h4 class="font-bold mb-1">Strategy: Micro-Influencers</h4>
+          <p class="text-xs text-gray-400 mb-2">策略：微网红</p>
+          <p class="text-gray-600 text-sm mb-4">Target 5k-50k followers. Higher engagement rates in CZ than mega-stars.
+          </p>
+          <p class="text-gray-400 text-xs mb-4">目标粉丝5k-50k。在捷克比超级明星的互动率更高。</p>
+          <ul class="text-xs space-y-2 text-gray-500">
+            <li>• StudyGram accounts (Stationery) <span class="text-gray-400">学习博主（文具）</span></li>
+            <li>• Mommy Bloggers (Home goods) <span class="text-gray-400">妈妈博主（家居）</span></li>
+            <li>• Gen Z Lifestyle (Fashion/Beauty) <span class="text-gray-400">Z世代生活方式（时尚/美妆）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Budget Content -->
+      <div id="content-budget"
+        class="strategy-content hidden grid-cols-1 md:grid-cols-2 gap-8 items-center animate-fade-in">
+        <div class="chart-container">
+          <canvas id="budgetChart"></canvas>
+        </div>
+        <div class="space-y-4">
+          <h3 class="font-bold text-xl text-gray-900">Recommended Allocation</h3>
+          <p class="text-sm text-gray-400">建议分配</p>
+          <p class="text-gray-600 text-sm">Initial launch phase requires heavy investment in "Push" marketing
+            (Ads/Influencers) to build awareness.</p>
+          <p class="text-gray-400 text-xs">初始发布阶段需要大量投资「推送」营销（广告/网红）以建立知名度。</p>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between border-b pb-2">
+              <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-red-500 mr-2"></span>Paid Social Ads
+                <span class="text-gray-400 text-xs ml-1">付费社交广告</span></span>
+              <span class="font-bold text-gray-700">40%</span>
+            </li>
+            <li class="flex items-center justify-between border-b pb-2">
+              <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>Influencer
+                Partnerships <span class="text-gray-400 text-xs ml-1">网红合作</span></span>
+              <span class="font-bold text-gray-700">30%</span>
+            </li>
+            <li class="flex items-center justify-between border-b pb-2">
+              <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>Content
+                Creation <span class="text-gray-400 text-xs ml-1">内容创作</span></span>
+              <span class="font-bold text-gray-700">20%</span>
+            </li>
+            <li class="flex items-center justify-between border-b pb-2">
+              <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-green-500 mr-2"></span>SEO &
+                Technical <span class="text-gray-400 text-xs ml-1">SEO与技术</span></span>
+              <span class="font-bold text-gray-700">10%</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white mt-20 py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- CTA Section -->
+      <div class="text-center mb-12">
+        <div class="flex justify-center items-center gap-4 mb-6">
+          <img src="yoyoso-logo-white.png" alt="YOYOSO" class="h-10">
+          <span class="text-2xl text-gray-600">×</span>
+          <img src="digidot-logo.png" alt="Digidot Agency" class="h-10">
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-2">Ready to launch in CZ?</h2>
+        <p class="text-xl text-gray-400 mb-6">准备好在捷克启动了吗？</p>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+          This strategic report was prepared by <strong class="text-blue-400">Digidot Agency</strong> — your partner for
+          digital marketing, brand strategy, and market entry in Central Europe.
+        </p>
+        <p class="text-gray-500 text-sm max-w-2xl mx-auto mb-8">
+          本策略报告由 <strong class="text-blue-400">Digidot Agency</strong> 编制 — 您在中欧数字营销、品牌战略和市场进入的合作伙伴。
+        </p>
+        <a href="mailto:info@digidot.cz"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+          <span>Contact Digidot Agency</span>
+          <span>→</span>
+        </a>
+        <p class="text-xs text-gray-500 mt-3">联系 Digidot Agency</p>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+          <img src="digidot-logo.png" alt="Digidot" class="h-6">
+          <span class="text-gray-500 text-sm">Strategic Marketing Partner</span>
+        </div>
+        <p class="text-gray-600 text-xs">© 2026 Interactive Strategic Report for Yoyoso Brand Analysis. Prepared by
+          Digidot Agency.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Logic Script -->
+  <script>
+    // --- DATA STORE ---
+    const competitors = [
+      {
+        id: 'yoyoso',
+        name: 'Yoyoso',
+        origin: 'China (Korean Style)',
+        originCn: '中国（韩式风格）',
+        color: '#ef4444',
+        strengths: ['Strong aesthetics', 'Fashion-focused', 'Franchise speed'],
+        strengthsCn: ['强烈的美学风格', '时尚导向', '加盟速度快'],
+        weaknesses: ['Brand awareness in CZ', 'Price perception vs Action'],
+        weaknessesCn: ['在捷克品牌知名度低', '与Action的价格感知差异'],
+        description: 'The challenger. Focuses heavily on "Aesthetics Fast Fashion". Now with 4 stores in Prague (Flora, Zličín, Novo Plaza, Arkády Pankrác). Needs to emphasize the "Lifestyle" aspect to succeed in CZ against established discount giants.',
+        descriptionCn: '挑战者。专注于「美学快时尚」。目前在布拉格拥有4家门店（Flora、Zličín、Novo Plaza、Arkády Pankrác）。需要强调「生活方式」方面，以在捷克与成熟的折扣巨头竞争。',
+        data: [4, 5, 3, 5, 3] // Price, Aesthetics, Quality, Variety, Awareness
+      },
+      {
+        id: 'ximivogue',
+        name: 'XIMIVOGUE',
+        origin: 'China (Korean Style)',
+        originCn: '中国（韩式风格）',
+        color: '#10b981',
+        strengths: ['Green branding (Eco-feel)', 'Rapid franchise expansion', 'High SKU count'],
+        strengthsCn: ['绿色品牌（生态感）', '快速加盟扩张', '高SKU数量'],
+        weaknesses: ['Indistinguishable from Yoyoso', 'Inconsistent store layouts'],
+        weaknessesCn: ['与Yoyoso难以区分', '门店布局不一致'],
+        description: 'A fierce direct competitor. XIMIVOGUE uses very similar green/nature branding to stand out from the "Red" brands (Miniso/Yoyoso). They aggressively target franchise partners in Eastern Europe.',
+        descriptionCn: '激烈的直接竞争对手。XIMIVOGUE使用非常相似的绿色/自然品牌来与「红色」品牌（Miniso/Yoyoso）区分。他们积极在东欧寻找加盟合作伙伴。',
+        data: [4, 4, 3, 5, 2]
+      },
+      {
+        id: 'usupso',
+        name: 'USUPSO',
+        origin: 'China (Japanese Style)',
+        originCn: '中国（日式风格）',
+        color: '#f59e0b',
+        strengths: ['Very low cost', 'High impulse buy potential'],
+        strengthsCn: ['极低成本', '高冲动购买潜力'],
+        weaknesses: ['Lower quality perception', 'Confusing branding'],
+        weaknessesCn: ['质量感知较低', '品牌定位混乱'],
+        description: 'Direct clone competitor using "Japanese Brand" marketing despite Chinese roots. Often competes on pure price. Store environment is less premium than Miniso or Yoyoso, often found in Tier 2 locations.',
+        descriptionCn: '直接克隆竞争者，尽管是中国根源，但使用「日本品牌」营销。通常纯粹竟争价格。门店环境不如Miniso或Yoyoso高端，通常地处二线位置。',
+        data: [5, 3, 2, 4, 2]
+      },
+      {
+        id: 'ximiso',
+        name: 'XIMISO',
+        origin: 'China (Korean Style)',
+        originCn: '中国（韩式风格）',
+        color: '#3b82f6',
+        strengths: ['Aggressive franchising', 'Home-goods focus'],
+        strengthsCn: ['激进加盟', '家居用品为主'],
+        weaknesses: ['Brand dilution', 'Lower foot traffic locations'],
+        weaknessesCn: ['品牌稀释', '低客流位置'],
+        description: 'Another "Ximi" variant. XIMISO focuses slightly more on household utility than fashion. In the Czech market, they risk getting lost in the noise of similarly named brands.',
+        descriptionCn: '另一个「Ximi」变体。XIMISO更侧重家居实用性而非时尚。在捷克市场，他们有被同名品牌淩没的风险。',
+        data: [5, 3, 2, 3, 1]
+      },
+      {
+        id: 'tiger',
+        name: 'Flying Tiger',
+        origin: 'Denmark',
+        originCn: '丹麦',
+        color: '#10b981',
+        strengths: ['European design heritage', 'Cult following in CZ', 'Creative DIY focus'],
+        strengthsCn: ['欧洲设计传承', '在捷克有狂热追随者', '创意DIY导向'],
+        weaknesses: ['Less "Tech/Beauty" focus', 'Fixed store path layout'],
+        weaknessesCn: ['较少「科技/美妆」焦点', '固定门店动线布局'],
+        description: 'The local heavyweight. Danes understand European taste perfectly. Their design is quirky/humorous, unlike the "cute/sleek" Asian aesthetic. They dominate the "impulse gift" market in CZ.',
+        descriptionCn: '本地重量级选手。丹麦人完美理解欧洲品味。他们的设计古怪/幽默，与「可爱/简约」的亚洲美学不同。他们主导捷克的「冲动礼品」市场。',
+        data: [3, 5, 4, 3, 5]
+      },
+      {
+        id: 'action',
+        name: 'Action',
+        origin: 'Netherlands',
+        originCn: '荷兰',
+        color: '#0ea5e9',
+        strengths: ['Unbeatable prices', 'Massive CZ footprint', 'High traffic'],
+        strengthsCn: ['无与伦比的价格', '捷克大规模布局', '高客流'],
+        weaknesses: ['Zero "Aesthetic" value', 'Chaotic shopping experience'],
+        weaknessesCn: ['零「美学」价值', '混乱的购物体验'],
+        description: 'The "Wallet Share" Killer. While not an "aesthetic" store, Action dominates the low-cost non-food sector in CZ. Yoyoso cannot compete on price with Action, so it MUST compete on Experience and Style.',
+        descriptionCn: '「钱包份额」杀手。虽然不是「美学」店，但Action主导捷克的低价非食品领域。Yoyoso无法与Action竟争价格，因此必须竟争体验和风格。',
+        data: [5, 1, 3, 5, 5]
+      }
+    ];
+
+    // --- CHART INITIALIZATION ---
+
+    // 1. Radar Chart (Competitors)
+    const ctxRadar = document.getElementById('competitorRadarChart').getContext('2d');
+    let radarChart = new Chart(ctxRadar, {
+      type: 'radar',
+      data: {
+        labels: ['Affordability', 'Aesthetics', 'Quality', 'Variety', 'Brand Awareness'],
+        datasets: [] // Populated dynamically
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            angleLines: { color: '#e5e7eb' },
+            grid: { color: '#e5e7eb' },
+            pointLabels: { font: { size: 12, weight: 'bold' } },
+            suggestedMin: 0,
+            suggestedMax: 5
+          }
+        },
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+
+    // 2. SEO Bar Chart
+    const ctxSeo = document.getElementById('seoChart').getContext('2d');
+    new Chart(ctxSeo, {
+      type: 'bar',
+      data: {
+        labels: ['Korejská kosmetika', 'Tipy na dárky', 'Papírnictví Praha', 'Levné doplňky', 'Roztomilé věci'],
+        datasets: [{
+          label: 'Monthly Search Vol (Est.)',
+          data: [12000, 8500, 5400, 3200, 2100],
+          backgroundColor: '#ef4444',
+          borderRadius: 4
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // 3. Budget Pie Chart
+    const ctxBudget = document.getElementById('budgetChart').getContext('2d');
+    new Chart(ctxBudget, {
+      type: 'doughnut',
+      data: {
+        labels: ['Paid Social Ads', 'Influencers', 'Content Creation', 'SEO/Tech'],
+        datasets: [{
+          data: [40, 30, 20, 10],
+          backgroundColor: ['#ef4444', '#3b82f6', '#f59e0b', '#10b981'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'right' }
+        }
+      }
+    });
+
+    // --- INTERACTION LOGIC ---
+
+    // Populate Competitor List
+    const listContainer = document.getElementById('competitor-list');
+
+    function renderCompetitorList() {
+      listContainer.innerHTML = competitors.map((comp, index) => `
+                <div class="p-4 hover:bg-gray-50 cursor-pointer transition flex items-center justify-between group border-l-4 ${index === 0 ? 'border-teal-500 bg-teal-50' : 'border-transparent'}" 
+                     onclick="selectCompetitor('${comp.id}', this)">
+                    <div>
+                        <h4 class="font-bold text-gray-800">${comp.name}</h4>
+                        <p class="text-xs text-gray-500">${comp.origin}</p>
+                        <p class="text-xs text-gray-400">${comp.originCn}</p>
+                    </div>
+                    <span class="text-gray-300 group-hover:text-teal-500">→</span>
+                </div>
+            `).join('');
+
+      // Default select first
+      selectCompetitor(competitors[0].id, listContainer.children[0]);
+    }
+
+    function selectCompetitor(id, element) {
+      // Update UI styles
+      Array.from(listContainer.children).forEach(child => {
+        child.classList.remove('border-teal-500', 'bg-teal-50');
+        child.classList.add('border-transparent');
+      });
+      if (element) {
+        element.classList.remove('border-transparent');
+        element.classList.add('border-teal-500', 'bg-teal-50');
+      }
+
+      // Update Detail View
+      const comp = competitors.find(c => c.id === id);
+      const detailContainer = document.getElementById('competitor-detail');
+
+      detailContainer.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-900">${comp.name}</h3>
+                    <div class="text-right">
+                      <span class="px-2 py-1 bg-gray-100 text-xs font-bold rounded uppercase tracking-wide text-gray-600">${comp.origin}</span>
+                      <p class="text-xs text-gray-400 mt-1">${comp.originCn}</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-2 text-sm leading-relaxed">${comp.description}</p>
+                <p class="text-gray-400 mb-6 text-xs leading-relaxed">${comp.descriptionCn}</p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <h5 class="text-xs font-bold text-green-600 uppercase mb-1">Pros <span class="text-green-400 font-normal">优势</span></h5>
+                        <ul class="text-sm space-y-1 text-gray-700">
+                            ${comp.strengths.map((s, i) => `<li class="flex flex-col"><span class="flex items-start"><span class="mr-1">✓</span> ${s}</span><span class="text-xs text-gray-400 ml-4">${comp.strengthsCn[i]}</span></li>`).join('')}
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-xs font-bold text-red-600 uppercase mb-1">Cons <span class="text-red-400 font-normal">劣势</span></h5>
+                        <ul class="text-sm space-y-1 text-gray-700">
+                            ${comp.weaknesses.map((w, i) => `<li class="flex flex-col"><span class="flex items-start"><span class="mr-1">✖</span> ${w}</span><span class="text-xs text-gray-400 ml-4">${comp.weaknessesCn[i]}</span></li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+      // Update Radar Chart
+      // We keep Yoyoso as a baseline (Dataset 0) and compare the selected one (Dataset 1)
+      const yoyosoData = competitors.find(c => c.id === 'yoyoso');
+
+      const newDatasets = [
+        {
+          label: 'Yoyoso (Us)',
+          data: yoyosoData.data,
+          fill: true,
+          backgroundColor: 'rgba(239, 68, 68, 0.2)',
+          borderColor: '#ef4444',
+          pointBackgroundColor: '#ef4444',
+          borderWidth: 2
+        }
+      ];
+
+      if (id !== 'yoyoso') {
+        newDatasets.push({
+          label: comp.name,
+          data: comp.data,
+          fill: true,
+          backgroundColor: 'rgba(59, 130, 246, 0.2)',
+          borderColor: '#3b82f6',
+          pointBackgroundColor: '#3b82f6',
+          borderWidth: 2
+        });
+      }
+
+      radarChart.data.datasets = newDatasets;
+      radarChart.update();
+    }
+
+    // SWOT Toggle
+    function toggleSwot(section) {
+      const list = document.getElementById(`swot-${section}`);
+      const preview = document.getElementById(`swot-${section}-preview`);
+
+      if (list.classList.contains('hidden')) {
+        list.classList.remove('hidden');
+        preview.classList.add('hidden');
+      } else {
+        list.classList.add('hidden');
+        preview.classList.remove('hidden');
+      }
+    }
+
+    // Strategy Tabs
+    function switchStrategy(tab) {
+      // Hide all content
+      ['seo', 'social', 'budget'].forEach(t => {
+        document.getElementById(`content-${t}`).classList.add('hidden');
+        document.getElementById(`content-${t}`).classList.remove('grid');
+
+        const btn = document.getElementById(`tab-${t}`);
+        btn.classList.remove('border-teal-500', 'text-teal-600');
+        btn.classList.add('border-transparent', 'text-gray-500');
+      });
+
+      // Show selected
+      const content = document.getElementById(`content-${tab}`);
+      content.classList.remove('hidden');
+      content.classList.add('grid');
+
+      const activeBtn = document.getElementById(`tab-${tab}`);
+      activeBtn.classList.remove('border-transparent', 'text-gray-500');
+      activeBtn.classList.add('border-teal-500', 'text-teal-600');
+    }
+
+    // Smooth Scroll
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu if open
+      document.getElementById('mobile-menu').classList.add('hidden');
+    }
+
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Init
+    renderCompetitorList();
+
+  </script>
+</body>
+
+</html>

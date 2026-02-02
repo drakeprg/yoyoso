@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYOSO — 3-Month Trial Marketing Service Brief</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* PDF-Optimized Premium Design */
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
+        @media print {
+
+            html,
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .pdf-page {
+                page-break-before: always;
+            }
+
+            .pdf-page:first-of-type {
+                page-break-before: avoid;
+            }
+
+            .no-break,
+            .card,
+            .service-card,
+            section>div {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            header {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                page-break-after: always !important;
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid !important;
+            }
+
+            .shadow-card {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+
+            footer {
+                page-break-before: always !important;
+            }
+        }
+
+        /* Typography - Bold & Modern */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .stat-number,
+        .month-badge,
+        .price-tag p {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        body {
+            background: #fff;
+            color: #0f172a;
+            font-weight: 450;
+        }
+
+        h1 {
+            font-weight: 700;
+        }
+
+        h2 {
+            font-weight: 700;
+        }
+
+        h3 {
+            font-weight: 600;
+        }
+
+        .font-bold {
+            font-weight: 700 !important;
+        }
+
+        .font-semibold {
+            font-weight: 600 !important;
+        }
+
+        /* Accent text styling */
+        .text-accent {
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Premium Header Gradient */
+        .premium-header {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 50%, #115e59 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .shadow-card {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .service-card.blue::before {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        }
+
+        .service-card.pink::before {
+            background: linear-gradient(90deg, #ec4899, #f472b6);
+        }
+
+        .service-card.amber::before {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+
+        .service-card.violet::before {
+            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+        }
+
+        .service-card.emerald::before {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+
+        .service-card.red::before {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+
+        .service-card.yellow::before {
+            background: linear-gradient(90deg, #eab308, #facc15);
+        }
+
+        .service-card.cyan::before {
+            background: linear-gradient(90deg, #06b6d4, #22d3ee);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-content {
+            padding: 24px;
+        }
+
+        /* Highlight Boxes - More vibrant */
+        .highlight-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: none;
+            border-left: 5px solid #10b981;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: none;
+            border-left: 5px solid #f59e0b;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+        }
+
+        /* Stats Cards - Bolder design */
+        .stat-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #14b8a6, #06b6d4);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Goal Numbers - Large and bold */
+        .goal-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+        }
+
+        /* Month Timeline Cards - More creative */
+        .month-card {
+            background: white;
+            border-radius: 20px;
+            border: 3px solid;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .month-card.month-1 {
+            border-color: #14b8a6;
+            background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 30%);
+        }
+
+        .month-card.month-2 {
+            border-color: #3b82f6;
+            background: linear-gradient(180deg, #eff6ff 0%, #ffffff 30%);
+        }
+
+        .month-card.month-3 {
+            border-color: #8b5cf6;
+            background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 30%);
+        }
+
+        .month-badge {
+            position: absolute;
+            top: -14px;
+            left: 24px;
+            padding: 6px 20px;
+            border-radius: 24px;
+            font-size: 11px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .month-1 .month-badge {
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+        }
+
+        .month-2 .month-badge {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+        }
+
+        .month-3 .month-badge {
+            background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+        }
+
+        /* Investment Section */
+        .investment-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .investment-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(20, 184, 166, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            padding: 24px 48px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        /* Chinese text */
+        .cn-text {
+            color: #64748b;
+            font-size: 0.85em;
+            font-weight: 400;
+        }
+
+        /* Icon containers */
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-box svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        /* Check items */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+        }
+
+        .check-item svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Footer */
+        .premium-footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 48px 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Cover Page / Header -->
+    <header class="premium-header text-white py-10 px-8">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+                <img src="yoyoso-logo-white.png" alt="YOYOSO" class="h-14" onerror="this.style.display='none'">
+                <span class="text-3xl text-white/40 font-light">×</span>
+                <img src="digidot-logo.png" alt="Digidot Agency" class="h-12" onerror="this.style.display='none'">
+            </div>
+            <h1 class="text-6xl font-bold mb-3" style="letter-spacing: -0.03em; line-height: 1.1;">3-Month
+                Trial<br>Marketing Service</h1>
+            <p class="text-2xl text-teal-100 font-medium mt-4">Nabídka zkušebních marketingových služeb</p>
+            <p class="text-lg text-teal-200/80 mt-1">三个月试用营销服务方案</p>
+            <div class="mt-6 pt-6 border-t border-white/20">
+                <p class="text-teal-200 text-xs uppercase tracking-widest font-semibold">Prepared for</p>
+                <p class="text-3xl font-bold mt-2" style="letter-spacing: -0.02em;">YOYOSO Czech Republic</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-8">
+
+        <!-- Page 2: Overview -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="clipboard-list" class="w-6 h-6 text-teal-600"></i>
+                    Přehled / Overview
+                    <span class="cn-text font-normal ml-2">概览</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <div class="grid grid-cols-4 gap-4 mb-6">
+                    <div class="stat-card">
+                        <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Klient / 客户</p>
+                        <p class="font-bold text-slate-800">YOYOSO</p>
+                        <p class="text-sm text-slate-600">Czech Republic</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Období / 期限</p>
+                        <p class="font-bold text-slate-800">3 měsíce</p>
+                        <p class="text-sm text-slate-600">Trial Period</p>
+                    </div>
+                    <div class="stat-card"
+                        style="background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border-color: #99f6e4;">
+                        <p class="text-xs text-teal-600 uppercase tracking-wide mb-2">Cena / 价格</p>
+                        <p class="font-bold text-teal-700 text-2xl">60 000 Kč</p>
+                        <p class="text-sm text-teal-600">(bez DPH) / store</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Dodavatel / 供应商</p>
+                        <p class="font-bold text-slate-800">Digidot</p>
+                        <p class="text-sm text-slate-600">Agency</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 class="font-bold text-teal-800 mb-1 flex items-center gap-2">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                        Rozsah Trial období
+                        <span class="cn-text font-normal">试用期范围</span>
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="check-item">
+                            <i data-lucide="check-circle" class="text-teal-600"></i>
+                            <div>
+                                <span class="text-teal-900">Cena <strong>60 000 Kč za 1 prodejnu</strong></span>
+                                <p class="cn-text">价格60,000克朗为1家门店</p>
+                            </div>
+                        </div>
+                        <div class="check-item">
+                            <i data-lucide="check-circle" class="text-teal-600"></i>
+                            <div>
+                                <span class="text-teal-900"><strong>Webová stránka</strong> pro všechny prodejny</span>
+                                <p class="cn-text">网站将覆盖所有门店</p>
+                            </div>
+                        </div>
+                        <div class="check-item">
+                            <i data-lucide="check-circle" class="text-teal-600"></i>
+                            <div>
+                                <span class="text-teal-900"><strong>Instagram & TikTok</strong> pro značku YOYOSO</span>
+                                <p class="cn-text">Instagram和TikTok展示品牌整体</p>
+                            </div>
+                        </div>
+                        <div class="check-item">
+                            <i data-lucide="check-circle" class="text-teal-600"></i>
+                            <div>
+                                <span class="text-teal-900">Individuální detaily pro prodejny</span>
+                                <p class="cn-text">各门店细节将单独协商</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 2: Campaign Goals -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="target" class="w-6 h-6 text-teal-600"></i>
+                    Cíle kampaně
+                    <span class="cn-text font-normal ml-2">营销目标</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <div class="grid grid-cols-2 gap-6">
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-br from-teal-50 to-white rounded-2xl border-2 border-teal-100">
+                        <div class="goal-number">1</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-lg">Zvýšit povědomí o značce</p>
+                            <p class="text-slate-500 font-medium">v České republice</p>
+                            <p class="cn-text mt-1">提升品牌知名度（捷克市场）</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-br from-teal-50 to-white rounded-2xl border-2 border-teal-100">
+                        <div class="goal-number">2</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-lg">Přivést více zákazníků</p>
+                            <p class="text-slate-500 font-medium">do fyzických prodejen</p>
+                            <p class="cn-text mt-1">为实体门店引流</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-br from-teal-50 to-white rounded-2xl border-2 border-teal-100">
+                        <div class="goal-number">3</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-lg">Vybudovat online přítomnost</p>
+                            <p class="text-slate-500 font-medium">na sociálních sítích</p>
+                            <p class="cn-text mt-1">建立社交媒体影响力</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-br from-teal-50 to-white rounded-2xl border-2 border-teal-100">
+                        <div class="goal-number">4</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-lg">Positioning pro GenZ</p>
+                            <p class="text-slate-500 font-medium">Trendy Lifestyle destinace</p>
+                            <p class="cn-text mt-1">定位潮流生活方式&Z世代</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Services Part 1 -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-teal-600"></i>
+                    Co je ZAHRNUTO v ceně
+                    <span class="cn-text font-normal ml-2">服务内容</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <div class="grid grid-cols-2 gap-5">
+                    <!-- Website -->
+                    <div class="service-card blue">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-blue-500"><i data-lucide="globe"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Oficiální webová stránka</h3>
+                                <p class="cn-text">官方网站</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Kompletní
+                                    design & vývoj <span class="cn-text">完整设计开发</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Responzivní
+                                    design <span class="cn-text">响应式设计</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>SEO + Google
+                                    Analytics <span class="cn-text">SEO优化+分析</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Průběžné
+                                    aktualizace <span class="cn-text">持续更新</span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="service-card pink">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-pink-500"><i data-lucide="smartphone"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Správa sociálních sítí</h3>
+                                <p class="cn-text">社交媒体管理</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <p class="font-semibold text-pink-600">Instagram:</p>
+                            <div class="check-item"><i data-lucide="check" class="text-pink-500"></i><span>12-16
+                                    postů/měsíc + Stories <span class="cn-text">帖子+快拍</span></span></div>
+                            <p class="font-semibold text-purple-600 mt-2">TikTok:</p>
+                            <div class="check-item"><i data-lucide="check" class="text-purple-500"></i><span>8-12
+                                    videí/měsíc <span class="cn-text">视频/月</span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Content Production -->
+                    <div class="service-card amber">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-amber-500"><i data-lucide="camera"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Produkce obsahu</h3>
+                                <p class="cn-text">内容制作</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-amber-500"></i><span>Fotografie
+                                    produktů <span class="cn-text">产品摄影</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-amber-500"></i><span>Video
+                                    produkce <span class="cn-text">视频制作</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-amber-500"></i><span>Grafický
+                                    design <span class="cn-text">平面设计</span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Design -->
+                    <div class="service-card violet">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-violet-500"><i data-lucide="palette"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Brand & Store Design</h3>
+                                <p class="cn-text">品牌与门店设计</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>Vizuální
+                                    identity <span class="cn-text">视觉识别</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>In-store
+                                    signage <span class="cn-text">店内标识</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>Promo
+                                    materiály <span class="cn-text">推广物料</span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4: Services Part 2 -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-teal-600"></i>
+                    Další služby v ceně
+                    <span class="cn-text font-normal ml-2">更多服务</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <div class="grid grid-cols-2 gap-5">
+                    <!-- Digital Catalog -->
+                    <div class="service-card emerald">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-emerald-500"><i data-lucide="book-open"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Digitální katalog</h3>
+                                <p class="cn-text">数字产品目录</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-emerald-500"></i><span>Online
+                                    produktový katalog <span class="cn-text">在线目录</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-emerald-500"></i><span>Mobilní
+                                    přístupnost <span class="cn-text">移动端适配</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-emerald-500"></i><span>Pravidelné
+                                    aktualizace <span class="cn-text">定期更新</span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Google Business -->
+                    <div class="service-card red">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-red-500"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Google Business</h3>
+                                <p class="cn-text">谷歌商家管理</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-red-500"></i><span>Správa profilu
+                                    <span class="cn-text">资料管理</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-red-500"></i><span>Lokální SEO
+                                    <span class="cn-text">本地优化</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-red-500"></i><span>Správa recenzí
+                                    <span class="cn-text">评论管理</span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Creative Campaigns -->
+                    <div class="service-card yellow">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-yellow-500"><i data-lucide="lightbulb"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Kreativní kampaně</h3>
+                                <p class="cn-text">创意营销活动</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-yellow-600"></i><span>Měsíční
+                                    koncepty <span class="cn-text">月度创意</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-yellow-600"></i><span>Sezónní
+                                    kampaně <span class="cn-text">季节活动</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-yellow-600"></i><span>Engagement
+                                    aktivity <span class="cn-text">互动活动</span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- PPC Ads -->
+                    <div class="service-card cyan">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="icon-box bg-cyan-500"><i data-lucide="megaphone"></i></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">PPC & Paid Ads</h3>
+                                <p class="cn-text">付费广告管理</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-cyan-500"></i><span>Google Ads
+                                    <span class="cn-text">谷歌广告</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-cyan-500"></i><span>Meta Ads
+                                    <span class="cn-text">脸书/IG广告</span></span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-cyan-500"></i><span>TikTok Ads
+                                    <span class="cn-text">抖音广告</span></span></div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Page 5: Not Included -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+                <h2 class="text-2xl font-bold text-amber-800 flex items-center gap-3">
+                    <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-600"></i>
+                    Co NENÍ zahrnuto v ceně
+                    <span class="cn-text font-normal ml-2">不包含在报价内的项目</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <p class="text-slate-600 mb-6">Následující položky vyžadují dodatečný rozpočet a budou řešeny
+                    individuálně:</p>
+                <p class="cn-text mb-8">以下项目需要额外预算，将单独协商：</p>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex items-start gap-4 p-5 bg-amber-50 rounded-xl border border-amber-200">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="wallet" class="w-6 h-6 text-amber-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-lg">Reklamní rozpočet (Ad Spend)</p>
+                            <p class="text-slate-500">Budget pro Google, Meta, TikTok kampaně</p>
+                            <p class="cn-text mt-1">广告投放预算（谷歌/脸书/抖音）</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-amber-50 rounded-xl border border-amber-200">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="users" class="w-6 h-6 text-amber-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-lg">Influencer marketing</p>
+                            <p class="text-slate-500">Honoráře pro influencery a KOL</p>
+                            <p class="cn-text mt-1">网红/KOL合作费用</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-amber-50 rounded-xl border border-amber-200">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="film" class="w-6 h-6 text-amber-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-lg">UGC (User Generated Content)</p>
+                            <p class="text-slate-500">Placený UGC od externích tvůrců</p>
+                            <p class="cn-text mt-1">付费UGC创作者内容</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-amber-50 rounded-xl border border-amber-200">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="printer" class="w-6 h-6 text-amber-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-lg">Tisk materiálů</p>
+                            <p class="text-slate-500">Fyzická produkce letáků, bannerů</p>
+                            <p class="cn-text mt-1">物料印刷（传单/横幅等）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5: Monthly Plan -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="calendar" class="w-6 h-6 text-teal-600"></i>
+                    Měsíční plán
+                    <span class="cn-text font-normal ml-2">月度执行计划</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <div class="grid grid-cols-3 gap-6">
+                    <!-- Month 1 -->
+                    <div class="month-card month-1">
+                        <div class="month-badge">MĚSÍC 1 / 第1月</div>
+                        <h3 class="font-bold text-teal-700 text-lg mt-3 mb-2">Launch & Foundation</h3>
+                        <p class="cn-text mb-4">启动与基础建设</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-teal-500"></i><span>Spuštění
+                                    webu</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-teal-500"></i><span>Social
+                                    setup</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-teal-500"></i><span>Brand
+                                    guidelines</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-teal-500"></i><span>Content
+                                    produkce</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-teal-500"></i><span>Google
+                                    Business</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Month 2 -->
+                    <div class="month-card month-2">
+                        <div class="month-badge">MĚSÍC 2 / 第2月</div>
+                        <h3 class="font-bold text-blue-700 text-lg mt-3 mb-2">Growth & Engagement</h3>
+                        <p class="cn-text mb-4">增长与互动</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Posting
+                                    schedule</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Engagement
+                                    kampaně</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Katalog
+                                    launch</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Video
+                                    ramp-up</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-blue-500"></i><span>Community
+                                    building</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Month 3 -->
+                    <div class="month-card month-3">
+                        <div class="month-badge">MĚSÍC 3 / 第3月</div>
+                        <h3 class="font-bold text-violet-700 text-lg mt-3 mb-2">Optimization & Scale</h3>
+                        <p class="cn-text mb-4">优化与扩展</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>Performance
+                                    analýza</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>Content
+                                    optimalizace</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>Sezónní
+                                    kampaň</span></div>
+                            <div class="check-item"><i data-lucide="check"
+                                    class="text-violet-500"></i><span>Reporting</span></div>
+                            <div class="check-item"><i data-lucide="check" class="text-violet-500"></i><span>Plán pro
+                                    další období</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 6: Deliverables & Investment -->
+        <section class="mb-8 no-break pdf-page">
+            <!-- Deliverables -->
+            <div class="card shadow-card mb-6">
+                <div class="section-header">
+                    <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-teal-600"></i>
+                        Očekávané výsledky
+                        <span class="cn-text font-normal ml-2">预期交付成果</span>
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="stat-card">
+                            <p class="text-4xl font-bold text-teal-600">1×</p>
+                            <p class="text-sm font-medium text-slate-700 mt-1">Kompletní web</p>
+                            <p class="cn-text">完整网站</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-4xl font-bold text-pink-600">36-48</p>
+                            <p class="text-sm font-medium text-slate-700 mt-1">Instagram posts</p>
+                            <p class="cn-text">帖子</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-4xl font-bold text-purple-600">24-36</p>
+                            <p class="text-sm font-medium text-slate-700 mt-1">TikTok videos</p>
+                            <p class="cn-text">视频</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-4xl font-bold text-amber-600">50+</p>
+                            <p class="text-sm font-medium text-slate-700 mt-1">Design assets</p>
+                            <p class="cn-text">设计素材</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investment -->
+            <div class="investment-section">
+                <h2 class="text-2xl font-bold mb-2 flex items-center justify-center gap-3 relative z-10">
+                    <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    Investice / Investment
+                </h2>
+                <p class="text-slate-400 mb-6 relative z-10">投资费用</p>
+
+                <div class="price-tag relative z-10">
+                    <p class="text-sm text-teal-200 uppercase tracking-wider mb-1">Celková cena / 总价</p>
+                    <p class="text-5xl font-bold">60 000 Kč</p>
+                    <p class="text-teal-200 mt-1">(bez DPH) — per store / 每店</p>
+                </div>
+
+                <div class="max-w-sm mx-auto text-left bg-white/10 p-5 rounded-xl mt-6 relative z-10">
+                    <p class="font-semibold text-white mb-2">Platební podmínky / 付款条款:</p>
+                    <div class="space-y-2 text-slate-300">
+                        <div class="check-item">
+                            <i data-lucide="circle" class="text-teal-400"></i>
+                            <span>50% předem <span class="cn-text">签约时支付</span></span>
+                        </div>
+                        <div class="check-item">
+                            <i data-lucide="circle" class="text-teal-400"></i>
+                            <span>50% po 1. měsíci <span class="cn-text">第1月结束后</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 7: Why Digidot -->
+        <section class="card shadow-card mb-8 no-break pdf-page">
+            <div class="section-header">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="award" class="w-6 h-6 text-teal-600"></i>
+                    Proč Digidot Agency?
+                    <span class="cn-text font-normal ml-2">为什么选择Digidot?</span>
+                </h2>
+            </div>
+            <div class="section-content">
+                <div class="grid grid-cols-2 gap-5">
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-r from-teal-50 to-transparent rounded-xl border border-teal-100">
+                        <div class="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800">Zkušenosti s asijskými značkami v ČR</p>
+                            <p class="cn-text mt-1">在捷克有丰富的亚洲品牌合作经验</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-r from-teal-50 to-transparent rounded-xl border border-teal-100">
+                        <div class="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800">Znalost českého trhu a trendů</p>
+                            <p class="cn-text mt-1">深入了解捷克市场和本地趋势</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-r from-teal-50 to-transparent rounded-xl border border-teal-100">
+                        <div class="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800">Full-stack marketing (web + social + design)</p>
+                            <p class="cn-text mt-1">全栈营销服务</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-5 bg-gradient-to-r from-teal-50 to-transparent rounded-xl border border-teal-100">
+                        <div class="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800">Bilingvální tým (CZ/EN + asian)</p>
+                            <p class="cn-text mt-1">多语言团队</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="premium-footer">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-center items-center gap-6 mb-8">
+                <img src="yoyoso-logo-white.png" alt="YOYOSO" class="h-10" onerror="this.style.display='none'">
+                <span class="text-2xl text-slate-600">×</span>
+                <img src="digidot-logo.png" alt="Digidot Agency" class="h-10" onerror="this.style.display='none'">
+            </div>
+            <div class="mb-8">
+                <p class="text-xl font-semibold text-white mb-2">Digidot Agency</p>
+                <p class="text-slate-400 flex items-center justify-center gap-6">
+                    <span class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>
+                        info@digidot.cz</span>
+                    <span class="flex items-center gap-2"><i data-lucide="globe" class="w-4 h-4"></i> digidot.cz</span>
+                </p>
+            </div>
+            <div class="pt-6 border-t border-slate-700">
+                <p class="text-slate-500 text-sm">
+                    Tato nabídka je platná 30 dní od data vystavení.
+                    <span class="cn-text block mt-1">本报价自出具之日起30天内有效。</span>
+                </p>
+                <p class="text-slate-600 text-xs mt-4">© 2026 YOYOSO Marketing Service Proposal — Prepared by Digidot
+                    Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
