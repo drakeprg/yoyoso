@@ -119,6 +119,10 @@
                 class="tab-btn px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
                 <i data-lucide="calculator" class="w-4 h-4"></i> Doporučený rozpočet
             </button>
+            <button onclick="switchTab('info')" data-tab="info"
+                class="tab-btn px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
+                <i data-lucide="info" class="w-4 h-4"></i> Info
+            </button>
         </div>
     </div>
 
@@ -2239,6 +2243,44 @@
 
     </div>
     </div> <!-- /tab-budget -->
+
+    <!-- ═══════════════════ TAB 5: INFO ═══════════════════ -->
+    <div id="tab-info" class="tab-panel" style="display:none">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="border-t-4 border-yoyoso pt-12 mb-12">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-yoyoso rounded-lg flex items-center justify-center">
+                        <i data-lucide="info" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight">Dokumenty
+                            a Info</h2>
+                    </div>
+                </div>
+                <p class="text-gray-500 font-medium">Důležité soubory a administrativní dokumenty ke stažení.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Contract Download -->
+                <a href="assets/Smlouva_YOYOSO_DIGIDOT.docx" download
+                    class="block bg-white border border-gray-200 rounded-2xl p-8 shadow-sm relative overflow-hidden group hover:border-yoyoso transition-colors cursor-pointer">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-yoyoso/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div
+                        class="w-12 h-12 bg-gray-50 text-yoyoso rounded-xl flex items-center justify-center mb-6 border border-gray-100 group-hover:bg-yoyoso group-hover:text-white transition-colors">
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-yoyoso mb-2">Ke stažení</p>
+                    <p class="text-xl font-bold font-grotesk text-gray-900 mb-2">Smlouva o spolupráci</p>
+                    <p class="text-sm text-gray-400 font-mono mb-4">Smlouva_YOYOSO_DIGIDOT.docx</p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-yoyoso mt-4">
+                        <i data-lucide="download" class="w-4 h-4"></i> Stáhnout soubor
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> <!-- /tab-info -->
 
     <!-- Footer -->
     <footer class="border-t border-yoyoso/20 bg-yoyoso-light text-center py-12 mt-12">
