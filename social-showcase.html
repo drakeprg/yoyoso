@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYOSO — ÚNOR / BŘEZEN 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        yoyoso: {
+                            DEFAULT: '#00a0a0',
+                            light: '#e0fbfb',
+                            dark: '#007a7a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        grotesk: ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #111827;
+        }
+
+        .image-placeholder {
+            background-color: #f8f9fa;
+            background-image: repeating-linear-gradient(45deg, #f1f3f5 25%, transparent 25%, transparent 75%, #f1f3f5 75%, #f1f3f5), repeating-linear-gradient(45deg, #f1f3f5 25%, #f8f9fa 25%, #f8f9fa 75%, #f1f3f5 75%, #f1f3f5);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid #e9ecef;
+        }
+
+        /* Timeline styles */
+        .timeline-day {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            border: 1px solid #e5e7eb;
+            color: #6b7280;
+        }
+
+        .timeline-day.has-post {
+            border-color: transparent;
+            font-weight: bold;
+        }
+
+        /* Tab button styles */
+        .tab-btn {
+            color: #9ca3af;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .tab-btn:hover {
+            color: #00a0a0;
+            background: #e0fbfb;
+        }
+
+        .tab-btn.active {
+            color: #007a7a;
+            background: #e0fbfb;
+            border-bottom: 3px solid #00a0a0;
+            margin-bottom: -2px;
+        }
+    </style>
+</head>
+
+<body class="antialiased pb-20 selection:bg-yoyoso selection:text-white">
+
+    <div class="max-w-7xl mx-auto px-6 pt-12">
+
+        <!-- Header -->
+        <header class="mb-8">
+            <img src="yoyoso-logo.png" alt="YOYOSO" class="h-10 mb-6" onerror="this.style.display='none'">
+            <h1 class="text-5xl font-bold uppercase tracking-tight mb-2 font-grotesk text-yoyoso-dark">ÚNOR / BŘEZEN
+                2026</h1>
+            <p class="text-gray-500 font-medium tracking-wide">YOYOSO.cz — Social Media Strategy Dashboard</p>
+        </header>
+
+        <!-- Main Tab Navigation -->
+        <div class="flex gap-1 border-b-2 border-gray-200 mb-12" id="mainTabs">
+            <button onclick="switchTab('content')" data-tab="content"
+                class="tab-btn active px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
+                <i data-lucide="layout-grid" class="w-4 h-4"></i> Content Calendar
+            </button>
+            <button onclick="switchTab('opening')" data-tab="opening"
+                class="tab-btn px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
+                <i data-lucide="store" class="w-4 h-4"></i> Grand Opening
+            </button>
+            <button onclick="switchTab('ads')" data-tab="ads"
+                class="tab-btn px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
+                <i data-lucide="megaphone" class="w-4 h-4"></i> Paid Ads
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TAB 1: CONTENT CALENDAR ═══════════════════ -->
+    <div id="tab-content" class="tab-panel">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Key Visual Design -->
+            <div class="mb-16">
+                <h2 class="text-sm font-bold uppercase tracking-widest text-yoyoso-dark mb-6 flex items-center gap-2">
+                    <i data-lucide="palette" class="w-4 h-4 text-yoyoso"></i> Key Visual Design
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <div onclick="openVideoModal()" style="cursor:pointer"
+                        class="rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 relative">
+                        <video src="assets/yoyosoteaser.mp4" autoplay loop muted playsinline
+                            class="w-full aspect-[3/4] object-cover"></video>
+                        <div
+                            class="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <div
+                                class="absolute top-2 left-2 bg-black/60 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-md flex items-center gap-1">
+                                <i data-lucide="play" class="w-3 h-3"></i> Video
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <img src="assets/kv-praho-tram.jpg" alt="Praho, jsme tady! YOYOSO přichází."
+                            class="w-full aspect-[3/4] object-cover">
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <img src="assets/kv-termosky.jpg" alt="Nová kolekce termosky YOYOSO"
+                            class="w-full aspect-[3/4] object-cover">
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <img src="assets/kv-skola.jpg" alt="Co si vzít do školy? YOYOSO má odpověď!"
+                            class="w-full aspect-[3/4] object-cover">
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <img src="assets/kv-mdz-2.png" alt="MDŽ — Výjimečná žena si zaslouží dar"
+                            class="w-full aspect-[3/4] object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Month Overview -->
+            <div class="bg-gray-50/50 border border-yoyoso/20 rounded-xl p-8 mb-16 shadow-sm">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-yoyoso-dark">PŘEHLED MĚSÍCE</h2>
+                    <div class="flex gap-4 text-xs font-medium text-gray-500">
+                        <div class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full border border-yoyoso bg-yoyoso-light"></span> Post</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yoyoso"></span>
+                            Video / Reel</div>
+                    </div>
+                </div>
+
+                <!-- Timeline Grid (Feb 23 - Mar 15) -->
+                <div class="overflow-x-auto pb-4">
+                    <div class="flex gap-2 min-w-max">
+                        <!-- Week 1 -->
+                        <div class="flex flex-col gap-1">
+                            <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">TÝDEN 1 (23.2. - 1.3.)
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md"
+                                    title="3 Posts">23</div>
+                                <div class="timeline-day has-post bg-yoyoso text-white rounded-md">24</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    25</div>
+                                <div class="timeline-day rounded-md">26</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    27</div>
+                                <div class="timeline-day rounded-md">28</div>
+                                <div class="timeline-day has-post bg-yoyoso text-white rounded-md">1</div>
+                            </div>
+                        </div>
+                        <!-- Week 2 -->
+                        <div class="flex flex-col gap-1 ml-4">
+                            <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">TÝDEN 2 (2.3. - 8.3.)
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="timeline-day rounded-md">2</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    3</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    4</div>
+                                <div class="timeline-day rounded-md">5</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    6</div>
+                                <div class="timeline-day rounded-md">7</div>
+                                <div class="timeline-day has-post bg-yoyoso text-white rounded-md">8</div>
+                            </div>
+                        </div>
+                        <!-- Week 3 -->
+                        <div class="flex flex-col gap-1 ml-4">
+                            <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">TÝDEN 3 (9.3. - 15.3.)
+                            </div>
+                            <div class="flex gap-1">
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    9</div>
+                                <div class="timeline-day has-post bg-yoyoso text-white rounded-md">10</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    11</div>
+                                <div class="timeline-day has-post bg-yoyoso text-white rounded-md">12</div>
+                                <div class="timeline-day rounded-md">13</div>
+                                <div class="timeline-day rounded-md">14</div>
+                                <div
+                                    class="timeline-day has-post bg-yoyoso-light border-yoyoso text-yoyoso-dark rounded-md">
+                                    15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts Masonry/Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+
+                <!-- Post 1 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">23. 02. 2026 (Po)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">BRAND</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">POST</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Praho, bacha na YOYO efekt!</h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Něco nového, svěžího a barevného se právě zabydluje v srdci Evropy. Přinášíme design, radost
+                            a
+                            styl dostupný pro každého. Jsme YOYOSO. A tohle je teprve začátek.
+                        </p>
+                        <p class="text-xs text-yoyoso font-medium italic">#YoyosoPraha #HelloPrague #JsmeTady</p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF
+                        </p>
+                        <h5 class="text-xs font-bold uppercase mb-2 text-gray-900">První oficiální "Ahoj"</h5>
+                        <p class="text-sm text-gray-600">Minimalistická grafika. Na pozadí elegantní, lehce rozmazaná
+                            silueta Prahy. Přes ni výrazné logo YOYOSO a text "Ahoj, Praho"</p>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">23. 02. 2026 (Po)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">PHILOSOPHY</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">CAROUSEL</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Co je to YOYOSO? Láska na první nákup.</h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Nejsme jen obchod. Jsme místo, kde najdeš kousek štěstí do kapsy i upgrade pro svůj byt.
+                            Věříme,
+                            že styl a krása nemají být luxus, ale zábava. Vítej ve světě YOYOSO.
+                        </p>
+                        <p class="text-xs text-yoyoso font-medium italic">#yoyosocz #homedecor</p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF (CAROUSEL)
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><strong class="text-yoyoso-dark mr-1">1:</strong> Grafika: "Co je to YOYOSO?"</li>
+                            <li><strong class="text-yoyoso-dark mr-1">2:</strong> Foto produktů. "Je to 8000+
+                                produktů..."
+                            </li>
+                            <li><strong class="text-yoyoso-dark mr-1">3:</strong> Lifestylová fotka. "...které ti zlepší
+                                den..."</li>
+                            <li><strong class="text-yoyoso-dark mr-1">4:</strong> Detail materiálu. "Je to design,
+                                kvalita..."</li>
+                            <li><strong class="text-yoyoso-dark mr-1">5:</strong> Interiér prodejny. "tvůj nový oblíbený
+                                obchod"</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">23. 02. 2026 (Po)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">MONDAY</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">CAROUSEL</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Když ti život dává citrony... udělej si limonádu!
+                        🍋
+                    </h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Novej týden, novej stres? Známe. Ale taky víme, že malé radosti dělají velký rozdíly. Třeba
+                            sluchátka, které oživí tvoji procházku po Náplavce nebo sešit, co je tak hezkej, že se ti do
+                            něj
+                            skoro nechce psát. Stav se v YOYOSO, tvůj denní upgrade čeká!
+                        </p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><strong class="text-yoyoso-dark mr-1">1:</strong> Grafika: "Jak přežít pondělí v Praze?"
+                            </li>
+                            <li><strong class="text-yoyoso-dark mr-1">2:</strong> Foto lahve s citrony. "Krok 1:
+                                Hydratuj
+                                stylově."</li>
+                            <li><strong class="text-yoyoso-dark mr-1">3:</strong> Sluchátka. "Krok 2: Vypni svět."</li>
+                            <li><strong class="text-yoyoso-dark mr-1">4:</strong> Ponožky. "Krok 3: Začni od základů."
+                            </li>
+                            <li><strong class="text-yoyoso-dark mr-1">5:</strong> Zápisník. "Krok 4: Zapiš si všechny
+                                nápady."</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">24. 02. 2026 (Út)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">STORE</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso text-white rounded">REEL</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                            <div class="w-6 h-6 rounded bg-black text-white flex items-center justify-center"><i
+                                    data-lucide="music" class="w-4 h-4"></i></div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Když vejdeš do YOYOSO... a chceš VŠECHNO.</h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Varování: návštěva našich obchodů může způsobit akutní záchvat 'I-NEED-IT!'. Ale co, žijeme
+                            jenom jednou, ne? 😅 Který kousek bys bral/a ty?
+                        </p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="video" class="w-3 h-3"></i> VIDEO BRIEF
+                        </p>
+                        <p class="text-sm text-gray-600 mb-4">Krátké video ukazující ohromující šíři sortimentu a pocit,
+                            který má zákazník při první návštěvě.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <a href="https://vm.tiktok.com/ZNRPVBTHb/"
+                                class="border border-yoyoso/20 bg-white px-3 py-1.5 text-yoyoso-dark rounded-full hover:bg-yoyoso hover:text-white transition shadow-sm font-medium">Inspo
+                                1 ↗</a>
+                            <a href="https://vm.tiktok.com/ZNRpVMuck/"
+                                class="border border-yoyoso/20 bg-white px-3 py-1.5 text-yoyoso-dark rounded-full hover:bg-yoyoso hover:text-white transition shadow-sm font-medium">Inspo
+                                2 ↗</a>
+                            <a href="https://vm.tiktok.com/ZNRpVFkG8/"
+                                class="border border-yoyoso/20 bg-white px-3 py-1.5 text-yoyoso-dark rounded-full hover:bg-yoyoso hover:text-white transition shadow-sm font-medium">Inspo
+                                3 ↗</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">25. 02. 2026 (St)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">STATIONERY</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">POST</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Naše sešity mají jedinou chybu. Jsou tak hezký, že
+                        je
+                        škoda do nich psát.</h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Fighting, fighting! Tenhle týden to všechno zvládneš. A s našimi propiskami, zvýrazňovači a
+                            sticky notes to bude přinejmenším barevnější. Kdo si taky píše to-do listy, jen aby si mohl
+                            odškrtávat? Přiznejte se! 🙌
+                        </p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF
+                        </p>
+                        <p class="text-sm text-gray-600">Estetická flatlay fotka. Na stole je otevřený designový sešit,
+                            vedle něj barevné propisky, zvýrazňovače, vtipné lepicí papírky a třeba hrnek s kávou.
+                            Kompozice
+                            je čistá a inspirativní.</p>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">27. 02. 2026 (Pá)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">RELAX</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">POST</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Weekend plan: 1. Nedělat nic. 2. Zopakovat bod 1.
+                    </h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Ať už tě čeká rande v Riegáčích nebo filmový maraton doma, máme pro tebe parťáky, co to
+                            jistí.
+                            Protože... proč si neudělat víkend ještě hezčí? PS: Naše polštářky jsou testovaný pro
+                            maximální
+                            pohodlí! 😴
+                        </p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF
+                        </p>
+                        <p class="text-sm text-gray-600">Flatlay fotka (aranžmá focené shora). Na dece roztomilý
+                            polštářek
+                            za krk, bezdrátová sluchátka, balzám na rty, malá kabelka a třeba sada barevných fixů. Celé
+                            to
+                            evokuje přípravu ba pohodový víkend.</p>
+                    </div>
+                </article>
+
+                <!-- Post 7 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">04. 03. 2026 (St)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-coral-100 text-coral-600 rounded"
+                                style="background-color: #ffe4e6; color: #e11d48;">PROMO MDŽ</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">POST</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">K MDŽ nerozdáváme jen komplimenty. Rozdáváme
+                        radost!
+                    </h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            Tuhle sobotu a neděli (7. a 8. 3.) to rozjedeme! Před našimi prodejnami najdeš něco
+                            speciálního.
+                            Stěnu plnou květin a dárečků, které čekají, až si je utrhneš. Každá skrývá milý vzkaz a
+                            některé
+                            i malý dárek od nás!
+                            <br><br><strong class="text-gray-900">Pravidla:</strong><br>
+                            Proveď nákup nad 100Kč a vyber si svoji kytičku s mystery balíčkem
+                        </p>
+                    </div>
+                    <div class="bg-rose-50/50 p-6 rounded-xl border border-rose-100">
+                        <p
+                            class="text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF (CAROUSEL)
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><strong class="text-gray-900 mr-1">1:</strong> Grafika: "POZOR! V PÁTEK A SOBOTU
+                                rozdáváme
+                                radost!"</li>
+                            <li><strong class="text-gray-900 mr-1">2:</strong> Ilustrace ruky trhající papírovou
+                                květinu.
+                            </li>
+                            <li><strong class="text-gray-900 mr-1">3:</strong> Detail papírové květiny. "Co se skrývá
+                                pod
+                                květem?"</li>
+                            <li><strong class="text-gray-900 mr-1">4:</strong> Fotka produktů. "...jeden z našich
+                                dárků!"
+                            </li>
+                            <li><strong class="text-gray-900 mr-1">5:</strong> Mapa/seznam prodejen. "Najdeš nás tady!"
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Post 8 -->
+                <article>
+                    <div class="flex justify-between items-center border-b-[3px] border-yoyoso pb-3 mb-6">
+                        <h3 class="text-xl font-bold font-grotesk tracking-tight text-yoyoso-dark">11. 03. 2026 (St)
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-gray-100 text-gray-600 rounded">ORGANIZATION</span>
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-yoyoso-light border border-yoyoso/30 text-yoyoso-dark rounded">CAROUSEL</span>
+                            <div
+                                class="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-6 leading-tight">Pro každý chaos máme ten správný box. Jaký je ten
+                        tvůj?</h4>
+                    <div class="mb-8">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <i data-lucide="align-left" class="w-3 h-3"></i> CAPTION
+                        </p>
+                        <p class="text-sm leading-relaxed mb-4 text-gray-700">
+                            📦 Ponožky bez páru? Papíry, co se 'budou hodit'? Kosmetika, co se válí všude? Máme řešení.
+                            Stylové, praktické a hlavně – konečně bude uklizeno. Aspoň na chvíli. 🙈
+                        </p>
+                    </div>
+                    <div class="bg-yoyoso/5 p-6 rounded-xl border border-yoyoso/10">
+                        <p
+                            class="text-[10px] font-bold text-yoyoso-dark uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-3 h-3"></i> DESIGNER BRIEF
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><strong class="text-yoyoso-dark mr-1">1:</strong> Grafika: "Najdi box pro svůj chaos."
+                            </li>
+                            <li><strong class="text-yoyoso-dark mr-1">2:</strong> Pletený košík. "Na deky a polštáře v
+                                obýváku."</li>
+                            <li><strong class="text-yoyoso-dark mr-1">3:</strong> Průhledný organizér. "Na kosmetiku v
+                                koupelně."</li>
+                            <li><strong class="text-yoyoso-dark mr-1">4:</strong> Velký látkový box. "Na sezónní
+                                oblečení."
+                            </li>
+                            <li><strong class="text-yoyoso-dark mr-1">5:</strong> Finální naaranžovaná fotka. "Pořádek
+                                může
+                                být hezký."</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </div> <!-- /tab-content -->
+
+    <!-- ═══════════════════ TAB 2: GRAND OPENING ═══════════════════ -->
+    <div id="tab-opening" class="tab-panel" style="display:none">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Grand Opening Header -->
+            <div
+                class="bg-gradient-to-br from-yoyoso-dark to-yoyoso rounded-2xl p-10 mb-12 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-20 translate-x-20">
+                </div>
+                <div class="absolute bottom-0 left-0 w-44 h-44 bg-white/5 rounded-full translate-y-16 -translate-x-16">
+                </div>
+                <div class="relative z-10">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-2">Grand Opening</p>
+                    <h2 class="text-4xl font-bold font-grotesk mb-2">🚀 Westfield Černý Most</h2>
+                    <p class="text-lg text-white/80">📅 12. března 2026 (Čtvrtek) — 📍 Praha 9</p>
+                </div>
+            </div>
+
+            <!-- Campaign Timeline -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h3
+                        class="text-lg font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight flex items-center gap-2">
+                        <i data-lucide="calendar-range" class="w-5 h-5 text-yoyoso"></i> Harmonogram kampaně
+                    </h3>
+                    <div class="flex gap-4 text-xs font-medium text-gray-500">
+                        <div class="flex items-center gap-1.5"><span
+                                class="w-2.5 h-2.5 rounded-full border border-yoyoso bg-yoyoso-light"></span> Post</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yoyoso"></span>
+                            Video / Reel</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+                        <p class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-1">Fáze 1</p>
+                        <p class="text-sm font-bold text-gray-900">TEASING</p>
+                        <p class="text-xs text-gray-500 mt-1">1.3. – 5.3.</p>
+                        <p class="text-xs text-gray-400 mt-2">Budovat očekávání, zvědavost</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+                        <p class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-1">Fáze 2</p>
+                        <p class="text-sm font-bold text-gray-900">COUNTDOWN</p>
+                        <p class="text-xs text-gray-500 mt-1">6.3. – 11.3.</p>
+                        <p class="text-xs text-gray-400 mt-2">Konkrétní oznámení, zapojení komunity</p>
+                    </div>
+                    <div class="bg-yoyoso text-white rounded-xl p-5 shadow-sm">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">Fáze 3</p>
+                        <p class="text-sm font-bold">LAUNCH DAY</p>
+                        <p class="text-xs text-white/70 mt-1">12.3.</p>
+                        <p class="text-xs text-white/50 mt-2">Maximální dosah, real-time content</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+                        <p class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-1">Fáze 4</p>
+                        <p class="text-sm font-bold text-gray-900">POST-LAUNCH</p>
+                        <p class="text-xs text-gray-500 mt-1">13.3. – 22.3.</p>
+                        <p class="text-xs text-gray-400 mt-2">Udržet momentum, UGC, recenze</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-Launch: Teasing -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-blue-50 border-b border-blue-100 px-8 py-5">
+                    <h4 class="text-lg font-bold font-grotesk text-blue-900">📱 Fáze 1: TEASING (1.3. – 5.3.)</h4>
+                </div>
+                <div class="p-8 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">Datum</th>
+                                <th class="pb-3 pr-4">Formát</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3">Headline</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">1.3. (Ne)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post
+                                        / Story</span></td>
+                                <td class="py-3 pr-4">Tajuplná fotka — zabalené regály, rozmazané logo</td>
+                                <td class="py-3 text-xs">"Něco se chystá... 👀"</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">2.3. (Po)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story
+                                        Quiz</span></td>
+                                <td class="py-3 pr-4">Anketa: "Kde bude naše nová prodejna?"</td>
+                                <td class="py-3 text-xs">"Uhádneš, kde nás najdeš?"</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">3.3. (Út)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post</span>
+                                </td>
+                                <td class="py-3 pr-4">Reveal lokace — fotka Westfieldu s logem</td>
+                                <td class="py-3 text-xs">"ČERNÝ MOST, přicházíme! 📍"</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">4.3. (St)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel</span>
+                                </td>
+                                <td class="py-3 pr-4">Behind-the-scenes: stavba prodejny</td>
+                                <td class="py-3 text-xs">"Budujeme vaši novou oblíbenou prodejnu 🔨"</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">5.3. (Čt)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story
+                                        Series</span></td>
+                                <td class="py-3 pr-4">"Guess the products" — rozmazané fotky</td>
+                                <td class="py-3 text-xs">"Co se skrývá na našich regálech?"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pre-Launch: Countdown -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-green-50 border-b border-green-100 px-8 py-5">
+                    <h4 class="text-lg font-bold font-grotesk text-green-900">⏳ Fáze 2: COUNTDOWN (6.3. – 11.3.)</h4>
+                </div>
+                <div class="p-8 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">Datum</th>
+                                <th class="pb-3 pr-4">Formát</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3">Headline</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">6.3. (Pá)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Carousel</span>
+                                </td>
+                                <td class="py-3 pr-4">Představení 5 top produktů</td>
+                                <td class="py-3 text-xs">"6 dní do otevření! 🛒"</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">7.3. (So)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel</span>
+                                </td>
+                                <td class="py-3 pr-4">Timelapse proměny prodejny</td>
+                                <td class="py-3 text-xs">"5 dní... Proměna je skoro hotová! ⏳"</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">9.3. (Po)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post
+                                        + Stories</span></td>
+                                <td class="py-3 pr-4">Oficiální oznámení: datum, čas, místo</td>
+                                <td class="py-3 text-xs">"📣 SAVE THE DATE: 12. března"</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">10.3. (Út)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story
+                                        Countdown</span></td>
+                                <td class="py-3 pr-4">Odpočítávací sticker + reminder</td>
+                                <td class="py-3 text-xs">"Už jen 2 dny! ⏰"</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">11.3. (St)</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel /
+                                        Post</span></td>
+                                <td class="py-3 pr-4">"1 minuta v YOYOSO" — průlet prodejnou</td>
+                                <td class="py-3 text-xs">"ZÍTRA JE TO TADY! 🎉"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Launch Day -->
+            <div class="mb-12 border-2 border-yoyoso rounded-2xl overflow-hidden shadow-lg">
+                <div class="bg-yoyoso text-white px-8 py-5">
+                    <h4 class="text-lg font-bold font-grotesk">🎉 DEN OTEVŘENÍ — 12. března 2026</h4>
+                </div>
+                <div class="p-8 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">Čas</th>
+                                <th class="pb-3 pr-4">Formát</th>
+                                <th class="pb-3">Obsah</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">7:00</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story</span>
+                                </td>
+                                <td class="py-3">"Good morning! Dnes je ten den 🌅" — ranní přípravy</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">9:30</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story</span>
+                                </td>
+                                <td class="py-3">Přímý přenos — fronta, atmosféra, nadšení</td>
+                            </tr>
+                            <tr class="border-b border-gray-50 bg-yoyoso/5">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">10:00</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel +
+                                        LIVE</span></td>
+                                <td class="py-3 font-bold">🎊 SLAVNOSTNÍ OTEVŘENÍ — stříhání pásky, první zákazníci</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">10:30</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story</span>
+                                </td>
+                                <td class="py-3">První zákazníci s nákupy, reakce, rozhovory</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">12:00</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Carousel</span>
+                                </td>
+                                <td class="py-3">Oficiální fotky — interiér, produkty, lidé</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">14:00</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story</span>
+                                </td>
+                                <td class="py-3">Záběry na speciální akce (tombola, dárky)</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">16:00</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel</span>
+                                </td>
+                                <td class="py-3">Sestřih celého dne — "Opening Day Recap"</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">20:00</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post</span>
+                                </td>
+                                <td class="py-3">Děkovný post: "Děkujeme, Černý Most! 🙏"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Post-Launch -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-yellow-50 border-b border-yellow-100 px-8 py-5">
+                    <h4 class="text-lg font-bold font-grotesk text-yellow-900">📈 Post-Launch (13.3. – 22.3.)</h4>
+                </div>
+                <div class="p-8 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">Datum</th>
+                                <th class="pb-3 pr-4">Formát</th>
+                                <th class="pb-3">Obsah</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">13.3.</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post</span>
+                                </td>
+                                <td class="py-3">Recap — best moments, počet návštěvníků, poděkování</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">14.3.</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel</span>
+                                </td>
+                                <td class="py-3">UGC compilation — záběry od zákazníků</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">16.3.</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post</span>
+                                </td>
+                                <td class="py-3">"Tohle jste si koupili nejvíc 🏆" — Top 5</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">18.3.</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Story
+                                        Series</span></td>
+                                <td class="py-3">Store tour video — prohlídka po sekcích</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">20.3.</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso text-white text-xs px-2 py-0.5 rounded-full font-medium">Reel</span>
+                                </td>
+                                <td class="py-3">"3 důvody, proč se vyplatí zajet do ČM"</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-bold text-yoyoso-dark">22.3.</td>
+                                <td class="py-3 pr-4"><span
+                                        class="bg-yoyoso-light text-yoyoso-dark text-xs px-2 py-0.5 rounded-full font-medium">Post</span>
+                                </td>
+                                <td class="py-3">Výzva: "Sdílejte s #YoyosoČernýMost a vyhrajte!"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Offline Activities -->
+            <h3
+                class="text-2xl font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight mb-8 flex items-center gap-3">
+                <i data-lucide="party-popper" class="w-6 h-6 text-yoyoso"></i> Offline aktivity
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Activity Cards -->
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🌸</span>
+                        <h5 class="text-sm font-bold text-gray-900">Květinová stěna</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">"Utrhni si radost" — nákup nad 100 Kč = květina se vzkazem nebo
+                        dárkem</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🎰</span>
+                        <h5 class="text-sm font-bold text-gray-900">Wheel of Fortune</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Kolo štěstí — slevy 10–20 %, drobné produkty, gift basket 500 Kč
+                    </p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🎁</span>
+                        <h5 class="text-sm font-bold text-gray-900">Prvních 100 zákazníků</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Exkluzivní YOYOSO taška s překvapením (mini set produktů)</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">📸</span>
+                        <h5 class="text-sm font-bold text-gray-900">Instagramový fotokoutek</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Branded kulisa + #YoyosoČernýMost — photo → story → 10% sleva</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🧋</span>
+                        <h5 class="text-sm font-bold text-gray-900">Občerstvení</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Zdarma čaj / bubble tea — spolupráce s lokálním podnikem</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🧲</span>
+                        <h5 class="text-sm font-bold text-gray-900">Floor Stickers</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Navigace od vchodu OC k prodejně — "YOYOSO? Tudy! →"</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🎈</span>
+                        <h5 class="text-sm font-bold text-gray-900">Balónkový stánek</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Teal balónky u vstupů OC s logem + datum otevření</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">📢</span>
+                        <h5 class="text-sm font-bold text-gray-900">Spolupráce s OC</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Newsletter Westfield, digitální obrazovky, plakáty</p>
+                </div>
+                <div
+                    class="bg-white border border-gray-200 rounded-xl p-6 hover:border-yoyoso/40 hover:shadow-md transition">
+                    <div class="flex items-center gap-2 mb-3"><span class="text-xl">🎀</span>
+                        <h5 class="text-sm font-bold text-gray-900">Mystery Box</h5>
+                    </div>
+                    <p class="text-xs text-gray-500">Limitovaná edice 99/199 Kč — produkty v hodnotě 2–3× vyšší</p>
+                </div>
+            </div>
+
+            <!-- Special Offers -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-yoyoso/5 border border-yoyoso/20 rounded-xl p-6">
+                    <p class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2">Opening Week</p>
+                    <p class="text-lg font-bold text-gray-900 mb-1">Sleva 15 %</p>
+                    <p class="text-xs text-gray-500">Na celý nákup po dobu prvních 3 dnů (12.–14.3.)</p>
+                </div>
+                <div class="bg-yoyoso/5 border border-yoyoso/20 rounded-xl p-6">
+                    <p class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2">Věrnostní program</p>
+                    <p class="text-lg font-bold text-gray-900 mb-1">Dvojité body</p>
+                    <p class="text-xs text-gray-500">Po celý opening week + kupón –50 Kč na další nákup</p>
+                </div>
+                <div class="bg-yoyoso/5 border border-yoyoso/20 rounded-xl p-6">
+                    <p class="text-[10px] font-bold text-yoyoso uppercase tracking-widest mb-2">Mystery Box</p>
+                    <p class="text-lg font-bold text-gray-900 mb-1">99 / 199 Kč</p>
+                    <p class="text-xs text-gray-500">Mix produktů v hodnotě 2–3× vyšší — exkluzivně při otevření</p>
+                </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="bg-gray-900 text-white rounded-2xl p-8 mb-12">
+                <h3 class="text-lg font-bold font-grotesk uppercase tracking-tight mb-6 flex items-center gap-2">
+                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-yoyoso"></i> KPI & Metriky úspěchu
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">100K+</p>
+                        <p class="text-xs text-gray-400 mt-1">IG Reach</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">+1 000</p>
+                        <p class="text-xs text-gray-400 mt-1">Noví IG followerů</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">50K+</p>
+                        <p class="text-xs text-gray-400 mt-1">TikTok Views</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">300+</p>
+                        <p class="text-xs text-gray-400 mt-1">Návštěvníci den 1</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">50+</p>
+                        <p class="text-xs text-gray-400 mt-1">UGC příspěvky</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checklist -->
+            <div class="border border-gray-200 rounded-2xl p-8 mb-12">
+                <h3
+                    class="text-lg font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight mb-6 flex items-center gap-2">
+                    <i data-lucide="check-square" class="w-5 h-5 text-yoyoso"></i> Checklist pro tým
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Dekorace prodejny (balónky, květinová stěna,
+                        fotokoutek)</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Branded tašky pro prvních 100
+                        zákazníků</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Kolo štěstí + výhry</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Grafiky pro social media (feed +
+                        stories)</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Boosted posty nastavit min. 5 dní
+                        předem</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Info do Westfield marketing</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Floor stickers a letáky</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Občerstvení (bubble tea / limonáda)</label>
+                    <label
+                        class="flex items-center gap-3 text-sm text-gray-700 bg-gray-50 rounded-lg px-4 py-3 cursor-pointer hover:bg-yoyoso/5 transition"><input
+                            type="checkbox" class="accent-yoyoso w-4 h-4"> Mystery Boxy</label>
+                </div>
+            </div>
+
+            <!-- ═══ GRAND OPENING PAID ADS — 30 000 Kč ═══ -->
+            <div class="border-t-4 border-yoyoso pt-12 mb-12">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-yoyoso rounded-lg flex items-center justify-center">
+                        <i data-lucide="banknote" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight">Placená
+                            propagace</h2>
+                    </div>
+                </div>
+                <p class="text-gray-500 font-medium">Rozpočet 30 000 Kč — 1.–30. března 2026 — Instagram 60 % + TikTok
+                    40 %</p>
+            </div>
+
+            <!-- Budget Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-gray-900 text-white rounded-2xl p-8 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-yoyoso/20 rounded-full -translate-y-8 translate-x-8">
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Celkový rozpočet</p>
+                    <p class="text-4xl font-bold font-grotesk mb-1">30 000 Kč</p>
+                    <p class="text-sm text-gray-400">Grand Opening kampaně</p>
+                </div>
+                <div class="border border-yoyoso/20 rounded-2xl p-8 bg-gradient-to-br from-purple-50 to-pink-50">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Instagram</p>
+                    </div>
+                    <p class="text-3xl font-bold font-grotesk text-gray-900 mb-1">18 000 Kč</p>
+                    <p class="text-sm text-gray-500 mb-3">60 % rozpočtu</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-yellow-400 via-red-500 to-purple-500 h-2 rounded-full"
+                            style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="border border-yoyoso/20 rounded-2xl p-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-black text-white flex items-center justify-center">
+                            <i data-lucide="music" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">TikTok</p>
+                    </div>
+                    <p class="text-3xl font-bold font-grotesk text-gray-900 mb-1">12 000 Kč</p>
+                    <p class="text-sm text-gray-500 mb-3">40 % rozpočtu</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-black h-2 rounded-full" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase Breakdown -->
+            <h3
+                class="text-lg font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight mb-8 flex items-center gap-3">
+                <i data-lucide="calendar-days" class="w-5 h-5 text-yoyoso"></i> Rozdělení po fázích
+            </h3>
+
+            <!-- Phase 1 -->
+            <div class="mb-8 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-blue-50 border-b border-blue-100 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-base font-bold font-grotesk text-blue-900">🔵 Fáze 1: TEASING & AWARENESS</h4>
+                        <p class="text-xs text-blue-600 mt-1">1.3. – 8.3. (8 dní)</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-blue-900">7 500 Kč</p>
+                        <p class="text-xs text-blue-500">IG: 4 500 Kč / TT: 3 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">ID</th>
+                                <th class="pb-3 pr-4">Platforma</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3 pr-4">Budget</th>
+                                <th class="pb-3 pr-4">Doba</th>
+                                <th class="pb-3">Cíl</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-01</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Mystery Teaser "Něco se chystá..."</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">3 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-02</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Location Reveal "ČERNÝ MOST!"</td>
+                                <td class="py-2 pr-4 font-bold">2 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">5 dní</td>
+                                <td class="py-2"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                        + Eng.</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-03</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Behind-the-scenes Reel</td>
+                                <td class="py-2 pr-4 font-bold">1 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">4 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                        Views</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-01</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">BTS Reel stavba prodejny</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">4 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                        Views</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-02</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">Guess Products interaktivní</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">3 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="mb-8 border-2 border-orange-300 rounded-2xl overflow-hidden shadow-md">
+                <div class="bg-orange-50 border-b border-orange-200 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-base font-bold font-grotesk text-orange-900">🔥 Fáze 2: HYPE & COUNTDOWN</h4>
+                        <p class="text-xs text-orange-600 mt-1">9.3. – 12.3. (4 dny) — nejvysší rozpočet!</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-orange-900">12 000 Kč</p>
+                        <p class="text-xs text-orange-500">IG: 7 000 Kč / TT: 5 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">ID</th>
+                                <th class="pb-3 pr-4">Platforma</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3 pr-4">Budget</th>
+                                <th class="pb-3 pr-4">Doba</th>
+                                <th class="pb-3">Cíl</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-04</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Save the Date "📣 12. března"</td>
+                                <td class="py-2 pr-4 font-bold">2 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">3 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                        + Profile</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-05</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Zítra otevíráme! countdown</td>
+                                <td class="py-2 pr-4 font-bold">2 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">2 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                        + Eng.</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-06</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Opening Day LIVE carousel</td>
+                                <td class="py-2 pr-4 font-bold">2 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">3 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-03</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">Timelapse proměny prodejny</td>
+                                <td class="py-2 pr-4 font-bold">2 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">3 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                        Views</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-04</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">Opening Day sestřih (Spark Ad)</td>
+                                <td class="py-2 pr-4 font-bold">3 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">4 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                        + Follows</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="mb-8 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-green-50 border-b border-green-100 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-base font-bold font-grotesk text-green-900">🟢 Fáze 3: POST-LAUNCH & UGC</h4>
+                        <p class="text-xs text-green-600 mt-1">13.3. – 22.3. (10 dní)</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-green-900">7 500 Kč</p>
+                        <p class="text-xs text-green-500">IG: 4 500 Kč / TT: 3 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">ID</th>
+                                <th class="pb-3 pr-4">Platforma</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3 pr-4">Budget</th>
+                                <th class="pb-3 pr-4">Doba</th>
+                                <th class="pb-3">Cíl</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-07</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Recap / Best Moments carousel</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">4 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-08</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Top 5 Bestsellers "🏆"</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">4 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Profile
+                                        + Reach</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-09</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">#YoyosoČernýMost challenge</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">4 dny</td>
+                                <td class="py-2"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Eng.
+                                        + UGC</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-05</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">UGC Compilation (Spark Ad)</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">5 dní</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                        Views</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-06</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">"3 důvody proč zajet" Reel</td>
+                                <td class="py-2 pr-4 font-bold">1 500 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">5 dní</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                        + Follows</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-gray-50 border-b border-gray-200 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-base font-bold font-grotesk text-gray-700">🔄 Fáze 4: REMARKETING & GROWTH</h4>
+                        <p class="text-xs text-gray-500 mt-1">23.3. – 30.3. (8 dní)</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-gray-700">3 000 Kč</p>
+                        <p class="text-xs text-gray-400">IG: 2 000 Kč / TT: 1 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">ID</th>
+                                <th class="pb-3 pr-4">Platforma</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3 pr-4">Budget</th>
+                                <th class="pb-3 pr-4">Doba</th>
+                                <th class="pb-3">Cíl</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-10</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-2 pr-4">Evergreen best-performing boost</td>
+                                <td class="py-2 pr-4 font-bold">2 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">7 dní</td>
+                                <td class="py-2"><span
+                                        class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                        + Follows</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-07</td>
+                                <td class="py-2 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-2 pr-4">Remind & revisit (Spark Ad)</td>
+                                <td class="py-2 pr-4 font-bold">1 000 Kč</td>
+                                <td class="py-2 pr-4 text-gray-500">7 dní</td>
+                                <td class="py-2"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                        + Follows</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Expected Total Results -->
+            <div class="bg-gray-900 text-white rounded-2xl p-8 mb-12">
+                <h3 class="text-lg font-bold font-grotesk uppercase tracking-tight mb-6 flex items-center gap-2">
+                    <i data-lucide="trending-up" class="w-5 h-5 text-yoyoso"></i> Celkové očekávané výsledky (30 dní)
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">315–595K</p>
+                        <p class="text-xs text-gray-400 mt-1">Celkový Reach</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">+600–1 300</p>
+                        <p class="text-xs text-gray-400 mt-1">Noví followerů</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">5–11K</p>
+                        <p class="text-xs text-gray-400 mt-1">Engagement</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">30–50 Kč</p>
+                        <p class="text-xs text-gray-400 mt-1">CPM TikTok</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- /tab-opening -->
+
+    <!-- ═══════════════════ TAB 3: PAID ADS ═══════════════════ -->
+    <div id="tab-ads" class="tab-panel" style="display:none">
+
+        <!-- PAID ADS SECTION -->
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Section Header -->
+            <div class="border-t-4 border-yoyoso pt-12 mb-12">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-yoyoso rounded-lg flex items-center justify-center">
+                        <i data-lucide="megaphone" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight">Paid Ads
+                            Plan
+                        </h2>
+                    </div>
+                </div>
+                <p class="text-gray-500 font-medium">Měsíční plán placené propagace — Březen 2026 — Instagram + TikTok —
+                    5
+                    prodejen v Praze</p>
+            </div>
+
+            <!-- Budget Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Total Budget -->
+                <div class="bg-gray-900 text-white rounded-2xl p-8 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-yoyoso/20 rounded-full -translate-y-8 translate-x-8">
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Celkový rozpočet</p>
+                    <p class="text-4xl font-bold font-grotesk mb-1">30 000 Kč</p>
+                    <p class="text-sm text-gray-400">Březen 2026</p>
+                </div>
+                <!-- Instagram -->
+                <div class="border border-yoyoso/20 rounded-2xl p-8 bg-gradient-to-br from-purple-50 to-pink-50">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Instagram</p>
+                    </div>
+                    <p class="text-3xl font-bold font-grotesk text-gray-900 mb-1">16 500 Kč</p>
+                    <p class="text-sm text-gray-500 mb-3">55 % rozpočtu</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-yellow-400 via-red-500 to-purple-500 h-2 rounded-full"
+                            style="width: 55%"></div>
+                    </div>
+                </div>
+                <!-- TikTok -->
+                <div class="border border-yoyoso/20 rounded-2xl p-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-black text-white flex items-center justify-center">
+                            <i data-lucide="music" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">TikTok</p>
+                    </div>
+                    <p class="text-3xl font-bold font-grotesk text-gray-900 mb-1">10 500 Kč</p>
+                    <p class="text-sm text-gray-500 mb-3">35 % rozpočtu</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-black h-2 rounded-full" style="width: 35%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reserve note -->
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-12 flex items-center gap-3">
+                <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-600 flex-shrink-0"></i>
+                <p class="text-sm text-yellow-800"><strong>Rezerva 3 000 Kč (10 %)</strong> — flexibilní budget na
+                    doboostování nejlepšího obsahu nebo nečekané příležitosti</p>
+            </div>
+
+            <!-- Weekly Breakdown -->
+            <h3
+                class="text-2xl font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight mb-8 flex items-center gap-3">
+                <i data-lucide="calendar-days" class="w-6 h-6 text-yoyoso"></i> Týdenní rozpis
+            </h3>
+
+            <!-- Week 1 -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-blue-50 border-b border-blue-100 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-lg font-bold font-grotesk text-blue-900">TÝDEN 1 — „Jaro začíná"</h4>
+                        <p class="text-xs text-blue-600 mt-1">1.3. – 8.3. 2026</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-blue-900">7 500 Kč</p>
+                        <p class="text-xs text-blue-500">IG: 4 500 Kč / TT: 3 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr
+                                    class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                    <th class="pb-3 pr-4">ID</th>
+                                    <th class="pb-3 pr-4">Platforma</th>
+                                    <th class="pb-3 pr-4">Obsah</th>
+                                    <th class="pb-3 pr-4">Budget</th>
+                                    <th class="pb-3 pr-4">Doba</th>
+                                    <th class="pb-3">Cíl</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M01</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">"Co je to YOYOSO?" carousel (doboost)</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">5 dní (1.–5.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M02</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Stationery flatlay post</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (3.–6.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M03</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Weekend relax post</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">3 dny (5.–7.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                            + Saves</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M01</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">Reel "Když vejdeš do YOYOSO..."</td>
+                                    <td class="py-3 pr-4 font-bold">2 000 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">5 dní (1.–5.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                            Views</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M02</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">Reel domácí obuv</td>
+                                    <td class="py-3 pr-4 font-bold">1 000 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (3.–6.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                            + Follows</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-green-50 border-b border-green-100 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-lg font-bold font-grotesk text-green-900">TÝDEN 2 — „MDŽ + Grand Opening" ⚡</h4>
+                        <p class="text-xs text-green-600 mt-1">9.3. – 15.3. 2026</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-green-900">10 000 Kč</p>
+                        <p class="text-xs text-green-500">IG: 5 500 Kč / TT: 4 500 Kč</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr
+                                    class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                    <th class="pb-3 pr-4">ID</th>
+                                    <th class="pb-3 pr-4">Platforma</th>
+                                    <th class="pb-3 pr-4">Obsah</th>
+                                    <th class="pb-3 pr-4">Budget</th>
+                                    <th class="pb-3 pr-4">Doba</th>
+                                    <th class="pb-3">Cíl</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M04</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">MDŽ promo "Utrhni si radost"</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (9.–12.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                            + Engagement</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M05</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Grand Opening — Save the Date</td>
+                                    <td class="py-3 pr-4 font-bold">2 000 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">3 dny (9.–11.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                            + Profile</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M06</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Grand Opening carousel z otevření</td>
+                                    <td class="py-3 pr-4 font-bold">2 000 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">3 dny (12.–14.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement
+                                            + Reach</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M03</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">Reel akce MDŽ — sestřih</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (9.–12.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                            Views</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M04</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">Grand Opening sestřih (Spark Ad)</td>
+                                    <td class="py-3 pr-4 font-bold">3 000 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (12.–15.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                            + Follows</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-yellow-50 border-b border-yellow-100 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-lg font-bold font-grotesk text-yellow-900">TÝDEN 3 — „Jarní produkty"</h4>
+                        <p class="text-xs text-yellow-600 mt-1">16.3. – 22.3. 2026</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-yellow-900">7 500 Kč</p>
+                        <p class="text-xs text-yellow-500">IG: 4 500 Kč / TT: 3 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr
+                                    class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                    <th class="pb-3 pr-4">ID</th>
+                                    <th class="pb-3 pr-4">Platforma</th>
+                                    <th class="pb-3 pr-4">Obsah</th>
+                                    <th class="pb-3 pr-4">Budget</th>
+                                    <th class="pb-3 pr-4">Doba</th>
+                                    <th class="pb-3">Cíl</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M07</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Jarní restart kuchyně</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (16.–19.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement
+                                            + Saves</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M08</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Úložné boxy carousel</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (18.–21.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                            + Saves</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M09</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Mazlíčci — jarní upgrade</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">4 dny (19.–22.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M05</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">Birthday basket reel</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">5 dní (16.–20.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                            Views</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M06</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">"5 věcí co musíš mít z YOYOSO"</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">5 dní (18.–22.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                            + Follows</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+                <div class="bg-red-50 border-b border-red-100 px-8 py-5 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-lg font-bold font-grotesk text-red-900">TÝDEN 4 — „Best of + Retargeting"</h4>
+                        <p class="text-xs text-red-600 mt-1">23.3. – 30.3. 2026</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold font-grotesk text-red-900">5 000 Kč</p>
+                        <p class="text-xs text-red-500">IG: 3 000 Kč / TT: 2 000 Kč</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr
+                                    class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                    <th class="pb-3 pr-4">ID</th>
+                                    <th class="pb-3 pr-4">Platforma</th>
+                                    <th class="pb-3 pr-4">Obsah</th>
+                                    <th class="pb-3 pr-4">Budget</th>
+                                    <th class="pb-3 pr-4">Doba</th>
+                                    <th class="pb-3">Cíl</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M10</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Doboost #1 — nejúspěšnější post měsíce</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">7 dní (23.–30.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                            + Follows</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-M11</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                            IG</span></td>
+                                    <td class="py-3 pr-4">Doboost #2 — nejlepší Reel měsíce</td>
+                                    <td class="py-3 pr-4 font-bold">1 500 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">7 dní (23.–30.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Video
+                                            Views + Follows</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-M07</td>
+                                    <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                                class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                    <td class="py-3 pr-4">Doboost nejlepší TikTok (Spark Ad)</td>
+                                    <td class="py-3 pr-4 font-bold">2 000 Kč</td>
+                                    <td class="py-3 pr-4 text-gray-500">7 dní (23.–30.3.)</td>
+                                    <td class="py-3"><span
+                                            class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                            + Follows</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expected Results -->
+            <div class="bg-gray-900 text-white rounded-2xl p-8 mb-12">
+                <h3 class="text-lg font-bold font-grotesk uppercase tracking-tight mb-6 flex items-center gap-2">
+                    <i data-lucide="trending-up" class="w-5 h-5 text-yoyoso"></i> Očekávané měsíční výsledky
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">550K</p>
+                        <p class="text-xs text-gray-400 mt-1">Celkový Reach</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">+1 100</p>
+                        <p class="text-xs text-gray-400 mt-1">Noví Followerů</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">9 000</p>
+                        <p class="text-xs text-gray-400 mt-1">Engagement</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold font-grotesk text-yoyoso">4 500</p>
+                        <p class="text-xs text-gray-400 mt-1">Profile Visits</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Store Targeting -->
+            <div class="border border-yoyoso/20 rounded-2xl p-8 mb-12">
+                <h3
+                    class="text-lg font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight mb-6 flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-yoyoso"></i> Cílení na 5 prodejen
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="bg-yoyoso/5 rounded-xl p-4 text-center border border-yoyoso/10">
+                        <p class="text-xs font-bold text-yoyoso-dark mb-1">OC Flora</p>
+                        <p class="text-[10px] text-gray-500">Praha 3 · R: 5 km</p>
+                        <p class="text-[10px] text-gray-400 mt-1">Žižkov, Vinohrady</p>
+                    </div>
+                    <div class="bg-yoyoso/5 rounded-xl p-4 text-center border border-yoyoso/10">
+                        <p class="text-xs font-bold text-yoyoso-dark mb-1">OC Zličín</p>
+                        <p class="text-[10px] text-gray-500">Praha 5 · R: 10 km</p>
+                        <p class="text-[10px] text-gray-400 mt-1">Rodiny, Praha-západ</p>
+                    </div>
+                    <div class="bg-yoyoso/5 rounded-xl p-4 text-center border border-yoyoso/10">
+                        <p class="text-xs font-bold text-yoyoso-dark mb-1">Novo Plaza</p>
+                        <p class="text-[10px] text-gray-500">Praha 4 · R: 5 km</p>
+                        <p class="text-[10px] text-gray-400 mt-1">Nusle, Podolí</p>
+                    </div>
+                    <div class="bg-yoyoso/5 rounded-xl p-4 text-center border border-yoyoso/10">
+                        <p class="text-xs font-bold text-yoyoso-dark mb-1">Arkády Pankrác</p>
+                        <p class="text-[10px] text-gray-500">Praha 4 · R: 5 km</p>
+                        <p class="text-[10px] text-gray-400 mt-1">Business area</p>
+                    </div>
+                    <div class="bg-yoyoso rounded-xl p-4 text-center text-white border border-yoyoso">
+                        <p class="text-xs font-bold mb-1">Černý Most 🆕</p>
+                        <p class="text-[10px] text-white/70">Praha 9 · R: 10 km</p>
+                        <p class="text-[10px] text-white/50 mt-1">Studenti, rodiny</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- /tab-ads -->
+
+    <!-- Grand Opening Tab Panel -->
+    <div id="tab-grand-opening" class="tab-panel" style="display: none;">
+        <div class="mb-12 border border-gray-200 rounded-2xl overflow-hidden">
+            <div class="bg-green-50 border-b border-green-100 px-8 py-5 flex justify-between items-center">
+                <div>
+                    <h4 class="text-lg font-bold font-grotesk text-green-900">GRAND OPENING — OC Černý Most</h4>
+                    <p class="text-xs text-green-600 mt-1">1.4. – 7.4. 2026</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-2xl font-bold font-grotesk text-green-900">10 000 Kč</p>
+                    <p class="text-xs text-green-500">IG: 5 000 Kč / TT: 5 000 Kč</p>
+                </div>
+            </div>
+            <div class="p-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr
+                                class="text-left text-[10px] font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">
+                                <th class="pb-3 pr-4">ID</th>
+                                <th class="pb-3 pr-4">Platforma</th>
+                                <th class="pb-3 pr-4">Obsah</th>
+                                <th class="pb-3 pr-4">Budget</th>
+                                <th class="pb-3 pr-4">Doba</th>
+                                <th class="pb-3">Cíl</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-GO1</td>
+                                <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-3 pr-4">Grand Opening Teaser</td>
+                                <td class="py-3 pr-4 font-bold">2 000 Kč</td>
+                                <td class="py-3 pr-4 text-gray-500">3 dny (1.–3.4.)</td>
+                                <td class="py-3"><span
+                                        class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-medium">Reach
+                                        + Traffic</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">IG-GO2</td>
+                                <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 inline-block"></span>
+                                        IG</span></td>
+                                <td class="py-3 pr-4">Grand Opening Event</td>
+                                <td class="py-3 pr-4 font-bold">3 000 Kč</td>
+                                <td class="py-3 pr-4 text-gray-500">4 dny (4.–7.4.)</td>
+                                <td class="py-3"><span
+                                        class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">Engagement
+                                        + Traffic</span></td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-GO1</td>
+                                <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-3 pr-4">Grand Opening Teaser (Spark Ad)</td>
+                                <td class="py-3 pr-4 font-bold">2 000 Kč</td>
+                                <td class="py-3 pr-4 text-gray-500">3 dny (1.–3.4.)</td>
+                                <td class="py-3"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                        + Traffic</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-mono text-xs text-yoyoso-dark font-bold">TT-GO2</td>
+                                <td class="py-3 pr-4"><span class="inline-flex items-center gap-1"><span
+                                            class="w-4 h-4 rounded bg-black inline-block"></span> TT</span></td>
+                                <td class="py-3 pr-4">Grand Opening Event (Spark Ad)</td>
+                                <td class="py-3 pr-4 font-bold">3 000 Kč</td>
+                                <td class="py-3 pr-4 text-gray-500">4 dny (4.–7.4.)</td>
+                                <td class="py-3"><span
+                                        class="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-medium">Views
+                                        + Traffic</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expected Results -->
+        <div class="bg-gray-900 text-white rounded-2xl p-8 mb-12">
+            <h3 class="text-lg font-bold font-grotesk uppercase tracking-tight mb-6 flex items-center gap-2">
+                <i data-lucide="trending-up" class="w-5 h-5 text-yoyoso"></i> Očekávané výsledky Grand Opening
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div>
+                    <p class="text-3xl font-bold font-grotesk text-yoyoso">200K</p>
+                    <p class="text-xs text-gray-400 mt-1">Celkový Reach</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold font-grotesk text-yoyoso">+300</p>
+                    <p class="text-xs text-gray-400 mt-1">Noví Followerů</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold font-grotesk text-yoyoso">3 000</p>
+                    <p class="text-xs text-gray-400 mt-1">Engagement</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold font-grotesk text-yoyoso">1 500</p>
+                    <p class="text-xs text-gray-400 mt-1">Profile Visits</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Store Targeting -->
+        <div class="border border-yoyoso/20 rounded-2xl p-8 mb-12">
+            <h3
+                class="text-lg font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight mb-6 flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-5 h-5 text-yoyoso"></i> Cílení na prodejnu
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-yoyoso rounded-xl p-4 text-center text-white border border-yoyoso">
+                    <p class="text-xs font-bold mb-1">Černý Most 🆕</p>
+                    <p class="text-[10px] text-white/70">Praha 9 · R: 10 km</p>
+                    <p class="text-[10px] text-white/50 mt-1">Studenti, rodiny</p>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /tab-grand-opening -->
+
+    <!-- Footer -->
+    <footer class="border-t border-yoyoso/20 bg-yoyoso-light text-center py-12 mt-12">
+        <img src="yoyoso-logo.png" alt="YOYOSO" class="h-6 mx-auto mb-4 opacity-50 grayscale blend-multiply"
+            onerror="this.style.display='none'">
+        <p class="text-xs font-bold text-yoyoso-dark uppercase tracking-widest mb-2">YOYOSO Czech Republic</p>
+        <p class="text-sm text-gray-500">Social Media Strategy Dashboard // Produced by Digidot Agency</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+            document.getElementById('tab-' + tabName).style.display = 'block';
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            setTimeout(() => lucide.createIcons(), 50);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Video Modal
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            modal.style.display = 'flex';
+            video.currentTime = 0;
+            video.play();
+            document.body.style.overflow = 'hidden';
+        }
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            video.pause();
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
+    </script>
+
+    <!-- Video Modal -->
+    <div id="videoModal" onclick="if(event.target===this)closeVideoModal()" style="display:none"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-8">
+        <div class="relative max-w-3xl w-full">
+            <button onclick="closeVideoModal()"
+                class="absolute -top-12 right-0 text-white/70 hover:text-white transition text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+                <i data-lucide="x" class="w-5 h-5"></i> Zavřít
+            </button>
+            <video id="modalVideo" src="assets/yoyosoteaser.mp4" controls class="w-full rounded-2xl shadow-2xl"></video>
+        </div>
+    </div>
+</body>
+
+</html>
