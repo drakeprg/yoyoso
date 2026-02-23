@@ -115,6 +115,10 @@
                 class="tab-btn px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
                 <i data-lucide="megaphone" class="w-4 h-4"></i> Paid Ads
             </button>
+            <button onclick="switchTab('budget')" data-tab="budget"
+                class="tab-btn px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-t-xl transition-all flex items-center gap-2">
+                <i data-lucide="calculator" class="w-4 h-4"></i> Doporučený rozpočet
+            </button>
         </div>
     </div>
 
@@ -2134,6 +2138,107 @@
             </div>
         </div>
     </div> <!-- /tab-grand-opening -->
+
+    <!-- ═══════════════════ TAB 4: SUGGESTED BUDGET ═══════════════════ -->
+    <div id="tab-budget" class="tab-panel" style="display:none">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="border-t-4 border-yoyoso pt-12 mb-12">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-yoyoso rounded-lg flex items-center justify-center">
+                        <i data-lucide="pie-chart" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold font-grotesk text-yoyoso-dark uppercase tracking-tight">Doporučený
+                            rozpočet</h2>
+                    </div>
+                </div>
+                <p class="text-gray-500 font-medium">Období: 15. 2. 2026 – 30. 3. 2026</p>
+            </div>
+
+            <!-- Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                <!-- Agency Fee -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm relative overflow-hidden group hover:border-yoyoso transition-colors">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-yoyoso/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div class="w-12 h-12 bg-yoyoso/10 text-yoyoso rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Agency Fee</p>
+                    <p class="text-3xl font-bold font-grotesk text-yoyoso-dark mb-2">40 000 Kč<span
+                            class="text-sm font-normal text-gray-400"> bez DPH</span></p>
+                    <p class="text-sm text-gray-500 relative z-10">Odměna pro agenturu Digidot za správu kampaní, tvorbu
+                        obsahu a strategii.</p>
+                </div>
+
+                <!-- Grand Opening Paid Ads -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm relative overflow-hidden group hover:border-orange-500 transition-colors">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div
+                        class="w-12 h-12 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="rocket" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Grand Opening (Paid
+                        Ads)</p>
+                    <p class="text-3xl font-bold font-grotesk text-gray-900 mb-2">30 000 Kč</p>
+                    <p class="text-sm text-gray-500 relative z-10">Mediální rozpočet pro platformy Instagram a TikTok na
+                        otevření prodejny Westfield Černý Most.</p>
+                </div>
+
+                <!-- General Paid Ads -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm relative overflow-hidden group hover:border-blue-500 transition-colors">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="megaphone" class="w-6 h-6"></i>
+                    </div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Dlouhodobé YOYOSO
+                        (Paid Ads)</p>
+                    <p class="text-3xl font-bold font-grotesk text-gray-900 mb-2">30 000 Kč</p>
+                    <p class="text-sm text-gray-500 relative z-10">Pravidelný mediální rozpočet pro platformy Instagram
+                        a TikTok (General brand awareness & e-commerce).</p>
+                </div>
+            </div>
+
+            <!-- UGC Budget -->
+            <div
+                class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm relative overflow-hidden group hover:border-green-500 transition-colors">
+                <div
+                    class="absolute top-0 right-0 w-24 h-24 bg-green-500/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-150 transition-transform duration-500">
+                </div>
+                <div class="w-12 h-12 bg-green-50 text-green-500 rounded-xl flex items-center justify-center mb-6">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">UGC Content</p>
+                <p class="text-3xl font-bold font-grotesk text-gray-900 mb-2">15 000 Kč<span
+                        class="text-sm font-normal text-gray-400"> / měsíc</span></p>
+                <p class="text-sm text-gray-500 relative z-10">Doporučený budget pro spolupráci s micro-influencery a
+                    UGC tvůrci pro autentický obsah.</p>
+            </div>
+        </div>
+
+        <!-- Total Overview -->
+        <div class="bg-gray-900 text-white rounded-2xl p-8 mb-16 flex items-center justify-between">
+            <div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Celkový doporučený
+                    budget (1.5 měsíce)</p>
+                <p class="text-sm text-gray-400">Zahrnuje Agency Fee (bez DPH) + Mediální rozpočty na inzerci + UGC.
+                </p>
+            </div>
+            <div class="text-right">
+                <p class="text-4xl font-bold font-grotesk text-yoyoso">115 000 Kč</p>
+            </div>
+        </div>
+
+    </div>
+    </div> <!-- /tab-budget -->
 
     <!-- Footer -->
     <footer class="border-t border-yoyoso/20 bg-yoyoso-light text-center py-12 mt-12">
